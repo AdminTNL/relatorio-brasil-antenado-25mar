@@ -1,1352 +1,3147 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Relatório — Programa Brasil Antenado</title>
-    <link rel="icon" type="image/png" href="/assets/icon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <div class="ambient"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relat&oacute;rio - Programa Brasil Antenado</title>
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+    --bg: #080c14;
+    --surface: #0d1421;
+    --surface2: #111827;
+    --border: #1e2d45;
+    --accent: #3b82f6;
+    --accent2: #60a5fa;
+    --accent-glow: rgba(59,130,246,0.15);
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --green: #10b981;
+    --green-bg: rgba(16,185,129,0.08);
+    --gold: #f59e0b;
+    --gold-bg: rgba(245,158,11,0.08);
+  }
 
-    <!-- NAV -->
-    <nav>
-      <div class="nav-logo">
-        <img src="/assets/logo.png" alt="Central de Engajamento" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="#overview">Visão Geral</a></li>
-        <li><a href="#timeline">Linha do Tempo</a></li>
-        <li><a href="#strategy">Estratégia</a></li>
-        <li><a href="#results">Resultados</a></li>
-        <li><a href="#team">Equipe & Logística</a></li>
-      </ul>
-      <span class="nav-badge">13–25 Mar 2026</span>
-    </nav>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- HERO -->
-    <div class="wrapper">
-      <div class="hero fade-up">
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <h1>Programa<br /><span>Brasil Antenado</span></h1>
-            <p class="hero-desc">
-              A presente medição inicial não reflete apenas a cobertura territorial já expandida do projeto, mas o arranque operacional efetivamente mobilizado para viabilizar a Fase C do Programa Brasil Antenado. Na janela reportada, a Central de Engajamento estruturou e ativou a operação de campo, com equipes de rua, coordenação de campo, coordenação regional, treinamento, tecnologia, conectividade, logística, pontos focais e contingências de lançamento, além de já executar o primeiro ciclo de mobilização em Pilão Arcado e Campo Alegre de Lourdes. Por isso, a leitura financeira desta medição deve considerar não só o número inicial de cidades cobertas, mas também a prontidão operacional e os custos necessários para colocar a operação em marcha com padrão, rastreabilidade e capacidade de continuidade.
-            </p>
-            <div class="hero-meta">
-              <div class="meta-item">
-                <span class="meta-label">Período</span>
-                <span class="meta-value">13 a 25 de março</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Cidades</span>
-                <span class="meta-value"
-                  >Pilão Arcado e Campo Alegre de Lourdes - BA</span
-                >
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Equipe</span>
-                <span class="meta-value">~30 profissionais</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Executora</span>
-                <span class="meta-value">Central de Engajamento</span>
-              </div>
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Background grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* Ambient glow */
+  .ambient {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(8,12,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent2); }
+
+  .nav-badge {
+    background: var(--accent-glow);
+    border: 1px solid rgba(59,130,246,0.3);
+    color: var(--accent2);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* WRAPPER */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 140px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    align-items: start;
+    gap: 28px;
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
+  .hero-gallery {
+    position: relative;
+    min-height: 360px;
+    padding-top: 12px;
+  }
+
+  .hero-shot {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    border: 1px solid rgba(96,165,250,0.3);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.42);
+    object-fit: cover;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .hero-shot:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96,165,250,0.55);
+  }
+
+  .hero-shot--front {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-shot--back {
+    position: absolute;
+    top: 160px;
+    right: 0;
+    max-width: 280px;
+    z-index: 1;
+    opacity: 0.95;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, var(--accent) 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 560px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .meta-value {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* KPI CARDS */
+  .kpi-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    animation: fadeUp 0.5s ease backwards;
+  }
+
+  .kpi-card:hover {
+    border-color: rgba(59,130,246,0.4);
+    transform: translateY(-2px);
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .kpi-card:hover::before { opacity: 1; }
+
+  .kpi-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .kpi-number.green { color: var(--green); }
+  .kpi-number.gold { color: var(--gold); }
+  .kpi-number.blue { color: var(--accent2); }
+
+  .kpi-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .kpi-trend {
+    margin-top: 20px;
+    background: linear-gradient(180deg, rgba(13,20,33,0.98), rgba(10,16,28,0.92));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px 20px 14px;
+    overflow: hidden;
+  }
+
+  .kpi-trend__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .kpi-trend__head h3 {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  .kpi-trend__head p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .kpi-trend__chart {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .chart-axis {
+    stroke: rgba(148,163,184,0.45);
+    stroke-width: 1.2;
+  }
+
+  .chart-grid {
+    stroke: rgba(148,163,184,0.16);
+    stroke-width: 1;
+    stroke-dasharray: 4 8;
+  }
+
+  .chart-line {
+    fill: none;
+    stroke: #60a5fa;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px rgba(96,165,250,0.28));
+  }
+
+  .chart-area {
+    fill: url(#trendArea);
+  }
+
+  .chart-point {
+    fill: #0d1421;
+    stroke: #60a5fa;
+    stroke-width: 3;
+  }
+
+  .chart-value {
+    fill: #e2e8f0;
+    font-size: 14px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+
+  .chart-label,
+  .chart-tick {
+    fill: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .chart-label {
+    text-anchor: middle;
+  }
+
+  /* SECTION TITLES */
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h2 + p {
+    margin-top: 12px;
+    color: var(--text-dim);
+    max-width: 580px;
+    font-weight: 300;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--border), transparent);
+  }
+
+  .tl-item {
+    display: flex;
+    gap: 32px;
+    padding-left: 60px;
+    position: relative;
+    margin-bottom: 0;
+    animation: fadeUp 0.5s ease backwards;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+    z-index: 1;
+    transition: background 0.2s;
+  }
+
+  .tl-item.active .tl-dot {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(59,130,246,0.5);
+  }
+
+  .tl-connector {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: -40px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .tl-content {
+    flex: 1;
+    padding-bottom: 44px;
+  }
+
+  .tl-date {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .tl-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .tl-body {
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .tl-media-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(180px, 0.75fr);
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .tl-media-grid__item {
+    width: 100%;
+    height: 280px;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid rgba(96,165,250,0.16);
+    object-fit: cover;
+    background: var(--surface2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+
+  .tl-media-grid__item--wide {
+    object-position: center;
+  }
+
+  .tl-media-grid__item--narrow {
+    object-position: center top;
+  }
+
+  .tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .tag.blue {
+    background: var(--accent-glow);
+    border-color: rgba(59,130,246,0.25);
+    color: var(--accent2);
+  }
+
+  .tag.green {
+    background: var(--green-bg);
+    border-color: rgba(16,185,129,0.25);
+    color: var(--green);
+  }
+
+  /* STRATEGY CARDS */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .strategy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    animation: fadeUp 0.5s ease backwards;
+  }
+
+  .strategy-card:hover {
+    border-color: rgba(59,130,246,0.35);
+    transform: translateY(-3px);
+  }
+
+  .strategy-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .strategy-phase {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .strategy-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .strategy-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .strategy-list {
+    list-style: none;
+    margin-top: 14px;
+  }
+
+  .strategy-list li {
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .strategy-list li:last-child { border-bottom: none; }
+
+  .strategy-list li::before {
+    content: "\2192";
+    color: var(--accent);
+    font-size: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* RESULTS */
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    animation: fadeUp 0.5s ease backwards;
+  }
+
+  .result-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .progress-bar-wrap {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .progress-label span:last-child {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .progress-track {
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), #818cf8);
+    transition: width 1s ease;
+  }
+
+  .progress-fill.green {
+    background: linear-gradient(90deg, var(--green), #34d399);
+  }
+
+  /* TEAM SECTION */
+  .team-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .info-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .info-block h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .info-block__text {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .evidence-panel {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .evidence-panel__hero,
+  .evidence-card,
+  .video-card {
+    background: linear-gradient(180deg, rgba(17,24,39,0.78), rgba(13,20,33,0.98));
+    border: 1px solid rgba(96,165,250,0.14);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .evidence-panel__side {
+    display: grid;
+    gap: 18px;
+  }
+
+  .evidence-media {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .evidence-media--hero {
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  .evidence-caption,
+  .evidence-card__caption,
+  .video-card__head {
+    padding: 12px 14px;
+  }
+
+  .evidence-caption {
+    display: grid;
+    gap: 6px;
+    border-top: 1px solid rgba(96,165,250,0.12);
+  }
+
+  .evidence-caption__label,
+  .video-card__label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  .evidence-caption__text,
+  .evidence-card__caption,
+  .video-card__meta {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .evidence-card__caption {
+    border-top: 1px solid rgba(96,165,250,0.12);
+  }
+
+  .video-card {
+    margin-top: 18px;
+  }
+
+  .video-card__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(96,165,250,0.12);
+  }
+
+  .video-card__media {
+    width: 100%;
+    display: block;
+    background: #000;
+  }
+
+  .cost-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cost-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cost-list li:last-child { border-bottom: none; }
+
+  .cost-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* FOCAL POINTS */
+  .focal-card {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(59,130,246,0.05) 100%);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .focal-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .focal-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .focal-items li {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    align-items: flex-start;
+  }
+
+  .focal-items li::before {
+    content: "\2713";
+    color: var(--green);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* DASHBOARD HIGHLIGHT */
+  .dashboard-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .dashboard-url {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--accent2);
+    text-decoration: none;
+    margin-top: 14px;
+    transition: border-color 0.2s;
+    word-break: break-all;
+  }
+
+  .dashboard-url:hover {
+    border-color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 15px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-logo img { height: 28px; }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.6s ease backwards; }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 32px 0;
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    nav .nav-links { display: none; }
+    .wrapper { padding: 0 20px; }
+    .hero-layout { grid-template-columns: 1fr; gap: 18px; }
+    .hero-gallery { min-height: 0; display: grid; gap: 12px; }
+    .hero-shot,
+    .hero-shot--back {
+      position: static;
+      max-width: 100%;
+    }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .results-grid .result-card.wide { grid-column: 1; }
+    .team-info { grid-template-columns: 1fr; }
+    .tl-media-grid { grid-template-columns: 1fr; }
+    .tl-media-grid__item { height: 220px; }
+    .evidence-panel { grid-template-columns: 1fr; }
+    .video-card__head { flex-direction: column; align-items: flex-start; }
+    .focal-card { grid-template-columns: 1fr; }
+    .dashboard-card { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-trend { padding: 16px 14px 12px; }
+    .kpi-trend__head { flex-direction: column; align-items: flex-start; }
+    .kpi-trend__head h3 { font-size: 17px; }
+    .chart-label,
+    .chart-tick { font-size: 11px; }
+    .hero { padding: 100px 0 60px; }
+  }
+
+  nav, footer { display:none !important; }
+  .ambient{ display:block; }
+  
+html{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+:root{
+  --page-w: 297mm;
+  --page-h: 167.0625mm;
+  --screen-max: 1480px;
+  --screen-gap: 22px;
+  --page-pad-x: 24px;
+  --page-pad-y: 18px;
+}
+
+body{
+  background: var(--bg);
+  overflow-x:hidden;
+}
+
+body::before{
+  opacity:.32;
+}
+
+.pdf-doc{
+  position:relative;
+  z-index:1;
+  width:100%;
+  padding: 16px 0 40px;
+  display:grid;
+  gap: var(--screen-gap);
+}
+
+.pdf-page{
+  width:min(calc(100vw - 24px), var(--screen-max));
+  aspect-ratio:16/9;
+  margin:0 auto;
+  background:
+    radial-gradient(ellipse at top center, rgba(59,130,246,0.10), transparent 46%),
+    linear-gradient(180deg, rgba(8,12,20,1) 0%, rgba(8,12,20,1) 100%);
+  border:1px solid rgba(30,45,69,.7);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,.35);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: page;
+  page-break-after: always;
+}
+
+.page-inner{
+  height:100%;
+  padding: var(--page-pad-y) var(--page-pad-x);
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.slide-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(30,45,69,.8);
+  flex:0 0 auto;
+}
+.slide-head__left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.slide-head img{
+  height:34px;
+  width:auto;
+  display:block;
+}
+.slide-head__meta{
+  display:grid;
+  gap:2px;
+}
+.slide-head__eyebrow{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--accent2);
+  font-weight:700;
+}
+.slide-head__title{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--text-muted);
+}
+.slide-head__pill{
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(59,130,246,.28);
+  background: rgba(59,130,246,.10);
+  color: var(--accent2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.slide-body{
+  flex:1 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.slide-foot{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-top:10px;
+  border-top:1px solid rgba(30,45,69,.8);
+  color:var(--text-muted);
+  font-size:11px;
+  letter-spacing:.04em;
+}
+.slide-foot__num{
+  font-family:'Space Grotesk',sans-serif;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+
+.pdf-page .wrapper{
+  max-width:none;
+  width:100%;
+  padding:0;
+}
+.pdf-page section,
+.pdf-page .hero,
+.pdf-page .kpi-section{
+  padding:0;
+  border-bottom:none;
+}
+.pdf-page .section-header{
+  margin-bottom:16px;
+}
+.pdf-page .section-number{
+  font-size:10px;
+  margin-bottom:4px;
+}
+.pdf-page h2{
+  font-size:24px;
+}
+.pdf-page h2 + p{
+  margin-top:6px;
+  font-size:13px;
+  max-width:760px;
+}
+.pdf-page .hero{
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+.pdf-page .hero-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) 33%;
+  gap:18px;
+  align-items:center;
+  width:100%;
+}
+.pdf-page .hero-desc{
+  font-size:16px;
+  max-width:650px;
+  margin-bottom:22px;
+}
+.pdf-page .hero-meta{
+  gap:18px 22px;
+}
+.pdf-page .meta-label{
+  font-size:10px;
+}
+.pdf-page .meta-value{
+  font-size:14px;
+}
+.pdf-page .hero-gallery{
+  min-height:0;
+  height:100%;
+  padding-top:6px;
+}
+.pdf-page .hero-shot{
+  max-width:100%;
+}
+.pdf-page .hero-shot--front{
+  width:78%;
+}
+.pdf-page .hero-shot--back{
+  width:68%;
+  top:44%;
+}
+.pdf-page .hero-tag{
+  margin-bottom:14px;
+}
+.slide-kpi .kpi-grid{
+  margin-top:26px;
+  gap:12px;
+}
+.slide-kpi .kpi-card{
+  padding:18px 16px;
+  border-radius:14px;
+}
+.slide-kpi .kpi-number{
+  font-size:32px;
+}
+.slide-kpi .kpi-label{
+  font-size:12px;
+}
+.slide-kpi .kpi-trend{
+  margin-top:14px;
+  padding:18px 18px 14px;
+}
+.slide-kpi .kpi-trend__head{
+  margin-bottom:10px;
+}
+.slide-kpi .kpi-trend__head h3{
+  font-size:18px;
+}
+.slide-kpi .insight-strip{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.slide-kpi .insight-mini{
+  background:rgba(17,24,39,.8);
+  border:1px solid rgba(30,45,69,.8);
+  border-radius:14px;
+  padding:12px 14px;
+}
+.slide-kpi .insight-mini__label{
+  font-size:10px;
+  letter-spacing:.1em;
+  color:var(--accent2);
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.slide-kpi .insight-mini__value{
+  font-size:13px;
+  line-height:1.45;
+  color:var(--text-dim);
+}
+
+.kpi-board{
+  display:grid;
+  grid-template-columns:.86fr 1.14fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.kpi-board .kpi-grid{
+  margin-top:0;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+.kpi-board .kpi-card{
+  padding:18px 16px;
+  border-radius:14px;
+}
+.kpi-board .kpi-card:last-child{
+  grid-column:1 / -1;
+}
+.kpi-board .kpi-number{
+  font-size:32px;
+}
+.kpi-board .kpi-label{
+  font-size:12px;
+}
+.kpi-board .kpi-trend{
+  margin-top:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.kpi-board .kpi-trend__chart{
+  flex:1 1 auto;
+}
+
+.timeline-overview{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:12px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.timeline-step{
+  background:linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  display:grid;
+  gap:8px;
+  min-height:0;
+}
+.timeline-step--accent{
+  border-color:rgba(59,130,246,.24);
+  box-shadow:inset 0 0 0 1px rgba(59,130,246,.08);
+}
+.timeline-step__index{
+  display:inline-flex;
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  align-items:center;
+  justify-content:center;
+  background:rgba(59,130,246,.12);
+  color:var(--accent2);
+  font-size:12px;
+  font-weight:700;
+  font-family:'Space Grotesk',sans-serif;
+}
+.timeline-step__date{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--accent2);
+  font-weight:700;
+}
+.timeline-step h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:16px;
+  line-height:1.2;
+  color:#fff;
+}
+.timeline-step p{
+  font-size:12px;
+  line-height:1.5;
+  color:var(--text-dim);
+}
+
+.event-card{
+  background: linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  min-height:0;
+}
+.event-card .tl-content{
+  display:grid;
+  gap:10px;
+}
+.event-card .tl-date{
+  font-size:11px;
+}
+.event-card .tl-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.15;
+  color:#fff;
+}
+.event-card .tl-body{
+  font-size:13px;
+  line-height:1.58;
+  color:var(--text-dim);
+}
+.event-card .tl-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.event-card .tag{
+  font-size:10px;
+}
+.prep-grid{
+  display:grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.prep-grid .event-card{
+  height:100%;
+}
+.prep-grid .event-card--training .evidence-media{
+  width:100%;
+  height: 240px;
+  object-fit: contain;
+  object-position:center;
+  display:block;
+  border-radius:12px !important;
+  background:rgba(8,12,20,.72);
+  border:1px solid rgba(30,45,69,.82);
+  padding:0;
+}
+
+.travel-shell{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.travel-shell .event-card{
+  height:100%;
+}
+.travel-shell .event-card .tl-title{
+  font-size:24px;
+}
+.travel-shell .travel-visuals{
+  display:grid;
+  grid-template-rows: auto auto;
+  gap:12px;
+  min-height:0;
+}
+.travel-shell .tl-media-grid{
+  margin-top:0;
+  grid-template-columns:1.35fr .85fr;
+  gap:10px;
+}
+.travel-shell .tl-media-grid__item{
+  height: 172px;
+}
+.travel-shell .travel-photo-frame{
+  background: linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+}
+.travel-shell .travel-photo-frame img{
+  width:100%;
+  height:100%;
+  max-height:210px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  border-radius:12px;
+}
+
+.execution-shell{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.execution-shell .event-card{
+  display:flex;
+  flex-direction:column;
+}
+.execution-shell .event-card .tl-content{
+  min-height:0;
+  height:100%;
+}
+.execution-shell .tl-title{
+  font-size:22px;
+}
+.execution-shell .tl-media-grid{
+  margin-top:2px;
+  gap:8px;
+  flex:1 1 auto;
+}
+.execution-shell .tl-media-grid__item{
+  height: 118px;
+}
+.execution-shell .continuity-note{
+  margin-top:auto;
+  background: rgba(59,130,246,.07);
+  border:1px solid rgba(59,130,246,.18);
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--text-dim);
+}
+
+.strategy-slide{
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:14px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.strategy-slide .continuity-card{
+  padding:14px 16px;
+}
+.strategy-slide .continuity-card .tl-title{
+  font-size:18px;
+}
+.strategy-slide .strategy-grid{
+  margin-top:0;
+  gap:12px;
+}
+.strategy-slide .strategy-card{
+  padding:18px 16px;
+  border-radius:16px;
+}
+.strategy-slide .strategy-icon{ margin-bottom:10px; }
+.strategy-slide .strategy-title{ font-size:18px; }
+.strategy-slide .strategy-desc, 
+.strategy-slide .strategy-list li{ font-size:12px; }
+.strategy-slide .focal-card{
+  margin-top:0;
+  padding:20px 22px;
+  gap:24px;
+  border-radius:18px;
+}
+.strategy-slide .focal-card h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+.strategy-slide .focal-items{
+  gap:6px;
+}
+.strategy-slide .focal-items li{
+  font-size:12px;
+  line-height:1.45;
+}
+
+.results-page .results-grid{
+  margin-top:0;
+  gap:14px;
+}
+.results-page .result-card{
+  padding:18px;
+  border-radius:16px;
+}
+.results-page .dashboard-card-inline{
+  margin-top:14px;
+}
+.results-page .dashboard-url{
+  margin-top:12px;
+}
+.results-page .result-card.wide{
+  padding:18px;
+}
+.results-page .dashboard-stretch{
+  display:grid;
+  gap:14px;
+}
+.results-page .dashboard-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.results-page .dashboard-metrics > div{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px 16px;
+}
+.results-page .dashboard-metrics .eyebrow{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--text-muted);
+  margin-bottom:4px;
+}
+.results-page .dashboard-metrics .metric-text{
+  font-size:14px;
+  color:var(--text);
+  font-weight:500;
+  line-height:1.38;
+}
+
+.team-page{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.team-page .info-block{
+  padding:18px;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+}
+.team-page .info-block h3{
+  font-size:20px;
+  margin-bottom:12px;
+}
+.team-page .cost-list li{
+  font-size:12px;
+  line-height:1.42;
+  padding:6px 0;
+}
+.team-page .evidence-media{
+  width:100%;
+  height: 210px;
+  object-fit: contain;
+  object-position:center;
+  display:block;
+  margin-top:14px !important;
+  border-radius:12px !important;
+  background:rgba(8,12,20,.72);
+  border:1px solid rgba(30,45,69,.82);
+}
+
+.starlink-page{
+  display:grid;
+  grid-template-columns: 1.18fr .82fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.starlink-main,
+.conclusion-side{
+  background: linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  min-height:0;
+}
+.starlink-main{
+  display:flex;
+  flex-direction:column;
+}
+.starlink-main h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+.starlink-main .info-block__text{
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+.starlink-main .evidence-panel{
+  margin-top:0;
+  display:grid;
+  grid-template-columns: 1.16fr .84fr;
+  gap:12px;
+  flex:1 1 auto;
+  min-height:0;
+}
+.starlink-main .evidence-panel__hero,
+.starlink-main .evidence-panel__side{
+  display:grid;
+  gap:12px;
+  min-height:0;
+}
+.starlink-main .evidence-panel__hero > img{
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  border-radius:14px;
+  background:rgba(8,12,20,.72);
+  border:1px solid rgba(30,45,69,.82);
+}
+.starlink-main .evidence-card{
+  border-radius:14px;
+}
+.starlink-main .evidence-card img{
+  width:100%;
+  height:100%;
+  max-height:200px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  background:rgba(8,12,20,.72);
+}
+.starlink-main .starlink-note-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:86px;
+}
+.starlink-main .starlink-note-card .evidence-card__caption{
+  border-top:none;
+  text-align:center;
+  font-size:12px;
+  line-height:1.5;
+}
+.conclusion-side{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.conclusion-side .section-number{
+  margin-bottom:8px;
+}
+.conclusion-side h2{
+  margin-bottom:14px;
+}
+.conclusion-side > div{
+  background: linear-gradient(135deg, rgba(13,20,33,1) 0%, rgba(59,130,246,0.05) 100%) !important;
+  border: 1px solid rgba(30,45,69,.85) !important;
+  border-radius:16px !important;
+  padding:20px !important;
+}
+.conclusion-side p{
+  font-size:13px !important;
+  line-height:1.7 !important;
+  max-width:none !important;
+}
+
+.insight-strip{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:12px;
+}
+
+.insight-mini{
+  background:rgba(17,24,39,.8);
+  border:1px solid rgba(30,45,69,.8);
+  border-radius:14px;
+  padding:12px 14px;
+}
+
+.insight-mini__label{
+  font-size:10px;
+  letter-spacing:.1em;
+  color:var(--accent2);
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.insight-mini__value{
+  font-size:13px;
+  line-height:1.45;
+  color:var(--text-dim);
+}
+
+.section-header--tight{
+  margin-bottom:12px !important;
+}
+
+.kpi-summary{
+  display:grid;
+  gap:14px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.kpi-summary .kpi-grid{
+  margin-top:0;
+}
+
+.kpi-summary .kpi-card{
+  padding:18px 16px;
+  border-radius:14px;
+}
+
+.kpi-summary .kpi-number{
+  font-size:32px;
+}
+
+.kpi-summary .kpi-label{
+  font-size:12px;
+}
+
+.trend-layout{
+  display:grid;
+  grid-template-columns:1.18fr .82fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.trend-layout .kpi-trend{
+  margin-top:0;
+  padding:18px 18px 14px;
+}
+
+.trend-layout .kpi-trend__head h3{
+  font-size:18px;
+}
+
+.note-stack{
+  display:grid;
+  gap:12px;
+  min-height:0;
+}
+
+.note-card{
+  background:linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+}
+
+.note-card__label{
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent2);
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.note-card p,
+.note-card li{
+  font-size:13px;
+  line-height:1.55;
+  color:var(--text-dim);
+}
+
+.note-list{
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+
+.note-list li{
+  padding-left:14px;
+  position:relative;
+}
+
+.note-list li::before{
+  content:"";
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--accent2);
+  position:absolute;
+  left:0;
+  top:8px;
+}
+
+.event-highlight{
+  display:grid;
+  grid-template-columns:.86fr 1.14fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.event-highlight__info{
+  height:100%;
+}
+
+.event-highlight__media{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px;
+  min-height:0;
+}
+
+.media-frame{
+  background:linear-gradient(180deg, rgba(13,20,33,.98), rgba(10,16,28,.95));
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  min-height:0;
+}
+
+.media-frame img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  min-height:0;
+}
+
+.phase-slide{
+  display:grid;
+  grid-template-rows:auto 1fr;
+  gap:14px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.phase-intro{
+  background:rgba(59,130,246,.07);
+  border:1px solid rgba(59,130,246,.18);
+  border-radius:14px;
+  padding:12px 14px;
+  color:var(--text-dim);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.phase-slide .strategy-grid{
+  margin-top:0;
+  gap:12px;
+}
+
+.phase-slide .strategy-card{
+  padding:18px 16px;
+  border-radius:16px;
+}
+
+.phase-slide .strategy-icon{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:rgba(59,130,246,.12);
+  color:var(--accent2);
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.phase-slide .strategy-title{
+  font-size:18px;
+}
+
+.phase-slide .strategy-desc,
+.phase-slide .strategy-list li{
+  font-size:12px;
+}
+
+.focus-layout{
+  display:grid;
+  grid-template-columns:.84fr 1.16fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.focus-layout .event-card{
+  height:100%;
+}
+
+.stack-cards{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:14px;
+  min-height:0;
+}
+
+.stack-cards .info-block{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+}
+
+.stack-cards .info-block p,
+.stack-cards .focal-items li{
+  font-size:12px;
+  line-height:1.5;
+}
+
+.results-summary{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:14px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.results-summary .result-card{
+  padding:18px;
+  border-radius:16px;
+  height:100%;
+}
+
+.dashboard-slide{
+  display:grid;
+  grid-template-columns:1.04fr .96fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.dashboard-slide .result-card{
+  height:100%;
+  padding:20px;
+}
+
+.metrics-board{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:12px;
+  margin-top:14px;
+}
+
+.metric-chip{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+.metric-chip__label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--text-muted);
+  margin-bottom:4px;
+}
+
+.metric-chip__value{
+  font-size:13px;
+  color:var(--text);
+  font-weight:500;
+  line-height:1.4;
+}
+
+.team-page{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.team-page .info-block{
+  padding:18px;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+}
+
+.team-page .info-block h3{
+  font-size:19px;
+  margin-bottom:10px;
+}
+
+.team-page .cost-list li{
+  font-size:12px;
+  line-height:1.42;
+  padding:5px 0;
+}
+
+.team-page .evidence-media{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  margin-top:14px !important;
+  border-radius:12px !important;
+  background:rgba(8,12,20,.72);
+  border:1px solid rgba(30,45,69,.82);
+}
+
+.team-page .evidence-card{
+  margin-top:auto;
+}
+
+@media print{
+  body{
+    background:#fff;
+  }
+  body::before,
+  .ambient{
+    display:none !important;
+  }
+  .pdf-doc{
+    padding:0;
+    gap:0;
+  }
+  .pdf-page{
+    width:var(--page-w);
+    height:var(--page-h);
+    margin:0;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+  }
+  @page{
+    size: 297mm 167.0625mm;
+    margin:0;
+  }
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+  a[href]{
+    text-decoration:none;
+  }
+  .page-inner{
+    padding:14px 18px;
+    gap:10px;
+  }
+  .slide-head{
+    gap:14px;
+    padding-bottom:8px;
+  }
+  .slide-head img{
+    height:28px;
+  }
+  .slide-head__eyebrow,
+  .slide-head__title,
+  .slide-head__pill{
+    font-size:10px;
+  }
+  .slide-foot{
+    padding-top:8px;
+    font-size:10px;
+  }
+  .slide-foot__num{
+    font-size:12px;
+  }
+  .section-header{
+    margin-bottom:10px;
+  }
+  .pdf-page h2{
+    font-size:21px;
+  }
+  .pdf-page h2 + p,
+  .hero-desc,
+  .info-block__text,
+  .tl-body,
+  .strategy-desc,
+  .strategy-list li,
+  .focal-items li,
+  .note-card p,
+  .note-card li,
+  .cost-list li,
+  .metric-chip__value,
+  .evidence-card__caption{
+    font-size:11px;
+    line-height:1.4;
+  }
+  .hero-desc{
+    margin-bottom:16px;
+  }
+  h1{
+    font-size:44px;
+    margin-bottom:12px;
+  }
+  .hero-tag{
+    margin-bottom:10px;
+    font-size:11px;
+  }
+  .hero-meta{
+    gap:12px 18px;
+  }
+  .meta-value{
+    font-size:13px;
+  }
+  .hero-shot--front{
+    width:76%;
+  }
+  .hero-shot--back{
+    width:64%;
+    top:46%;
+  }
+  .kpi-grid{
+    gap:10px;
+  }
+  .kpi-card,
+  .result-card,
+  .info-block,
+  .note-card,
+  .metric-chip{
+    padding:12px;
+  }
+  .kpi-number{
+    font-size:28px;
+  }
+  .kpi-trend{
+    padding:14px 14px 12px;
+  }
+  .kpi-trend__head h3{
+    font-size:16px;
+  }
+  .event-card{
+    padding:14px;
+  }
+  .tl-title{
+    font-size:18px;
+  }
+  .tag{
+    font-size:9px;
+    padding:4px 8px;
+  }
+  .strategy-grid,
+  .trend-layout,
+  .focus-layout,
+  .dashboard-slide,
+  .team-page,
+  .starlink-page{
+    gap:12px;
+  }
+  .strategy-card{
+    padding:12px;
+  }
+  .strategy-icon{
+    width:28px;
+    height:28px;
+    font-size:12px;
+    margin-bottom:8px;
+  }
+  .strategy-title{
+    font-size:16px;
+  }
+  .team-page .evidence-media{
+    height:110px;
+  }
+  .travel-photo-frame{
+    padding:8px;
+  }
+  .event-card--training .evidence-media{
+    height:100px;
+  }
+  .starlink-main h3{
+    font-size:20px;
+    margin-bottom:8px;
+  }
+  .evidence-panel{
+    gap:8px;
+  }
+  .starlink-note-card{
+    min-height:56px;
+  }
+  .conclusion-side p{
+    font-size:10px;
+    line-height:1.3;
+  }
+  .slide-cover .hero{
+    transform:scale(.97);
+    transform-origin:top left;
+    width:103.2%;
+  }
+  .slide-prep-plan .slide-body > .event-card{
+    transform:scale(.98);
+    transform-origin:top left;
+    width:102.1%;
+  }
+  .slide-prep-training .slide-body > .prep-grid{
+    transform:scale(.96);
+    transform-origin:top left;
+    width:104.2%;
+  }
+  .slide-strategy .slide-body > .phase-slide{
+    transform:scale(.92);
+    transform-origin:top left;
+    width:108.7%;
+  }
+  .slide-team .slide-body > .team-page{
+    transform:scale(.95);
+    transform-origin:top left;
+    width:105.3%;
+  }
+  .slide-infra .slide-body > .team-page{
+    transform:scale(.94);
+    transform-origin:top left;
+    width:106.5%;
+  }
+  .slide-starlink .slide-body > .starlink-page{
+    transform:scale(.9);
+    transform-origin:top left;
+    width:111.2%;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .pdf-page{
+    width:min(calc(100vw - 16px), 1200px);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  <main class="pdf-doc">
+    <section class="pdf-page slide-cover">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Relat&oacute;rio Operacional</div>
+              <div class="slide-head__title">Vis&atilde;o Geral</div>
             </div>
           </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
 
-          <div class="hero-gallery" aria-label="Evidências visuais da operação">
-            <img
-              class="hero-shot hero-shot--front"
-              src="/assets/evidencias/pilao.png"
-              alt="Mapa de mobilização em Pilão Arcado"
-            />
-            <img
-              class="hero-shot hero-shot--back"
-              src="/assets/evidencias/campo.png"
-              alt="Mapa de mobilização em Campo Alegre de Lourdes"
-            />
+        <div class="slide-body">
+          <div class="hero">
+            <div class="hero-layout">
+              <div class="hero-copy">
+                <div class="hero-tag">Relat&oacute;rio Operacional</div>
+                <h1>Programa<br /><span>Brasil Antenado</span></h1>
+                <p class="hero-desc">
+                  A medi&ccedil;&atilde;o inicial n&atilde;o reflete apenas a
+                  cobertura territorial j&aacute; expandida do projeto, mas o
+                  arranque operacional efetivamente mobilizado para viabilizar
+                  a Fase C do Programa Brasil Antenado. Na janela reportada, a
+                  Central de Engajamento estruturou e ativou opera&ccedil;&atilde;o
+                  de campo, coordena&ccedil;&atilde;o, treinamento, tecnologia,
+                  conectividade, log&iacute;stica, pontos focais e
+                  conting&ecirc;ncias de lan&ccedil;amento, al&eacute;m de
+                  executar o primeiro ciclo de mobiliza&ccedil;&atilde;o em
+                  Pil&atilde;o Arcado e Campo Alegre de Lourdes.
+                </p>
+                <div class="hero-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Per&iacute;odo</span>
+                    <span class="meta-value">13 a 25 de mar&ccedil;o</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Cidades</span>
+                    <span class="meta-value">Pil&atilde;o Arcado e Campo Alegre de Lourdes - BA</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Equipe</span>
+                    <span class="meta-value">~30 profissionais</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Executora</span>
+                    <span class="meta-value">Central de Engajamento</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-gallery" aria-label="Evid&ecirc;ncias visuais da opera&ccedil;&atilde;o">
+                <img class="hero-shot hero-shot--front" src="assets/evidencias/pilao.png" alt="Mapa de mobiliza&ccedil;&atilde;o em Pil&atilde;o Arcado" />
+                <img class="hero-shot hero-shot--back" src="assets/evidencias/campo.png" alt="Mapa de mobiliza&ccedil;&atilde;o em Campo Alegre de Lourdes" />
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="slide-foot">
+          <span>Abertura, escopo e contexto operacional</span>
+          <span class="slide-foot__num">01</span>
+        </div>
       </div>
-    </div>
-
-    <!-- KPIs -->
-    <div id="overview">
-      <div class="wrapper">
-        <div class="kpi-section">
-          <div class="section-header">
-            <div class="section-number">01 — KPIs</div>
-            <h2>Principais Indicadores</h2>
-            <p>
-              Dados coletados durante a operação de mobilização até o momento.
-            </p>
-          </div>
-          <div class="kpi-grid">
-            <div class="kpi-card" style="animation-delay: 0.05s">
-              <div class="kpi-number blue">238</div>
-              <div class="kpi-label">
-                Submissões realizadas no formulário de campo
-              </div>
-            </div>
-            <div class="kpi-card" style="animation-delay: 0.1s">
-              <div class="kpi-number green">76%</div>
-              <div class="kpi-label">Da população já conhecia o programa</div>
-            </div>
-            <div class="kpi-card" style="animation-delay: 0.15s">
-              <div class="kpi-number gold">89%</div>
-              <div class="kpi-label">
-                Demonstraram potencial de comparecimento à carreta
-              </div>
-            </div>
-            <div class="kpi-card" style="animation-delay: 0.25s">
-              <div class="kpi-number">2</div>
-              <div class="kpi-label">
-                Cidades cobertas na fase inicial da operação
-              </div>
-            </div>
-            <div class="kpi-card" style="animation-delay: 0.3s">
-              <div class="kpi-number green">~30</div>
-              <div class="kpi-label">
-                Profissionais contratados e mobilizados em campo
-              </div>
+    </section>
+    <section class="pdf-page slide-kpi">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Relat&oacute;rio Operacional</div>
+              <div class="slide-head__title">Indicadores</div>
             </div>
           </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
 
-          <article class="kpi-trend" aria-labelledby="kpi-trend-title">
-            <div class="kpi-trend__head">
-              <h3 id="kpi-trend-title">Volume diário de atendimentos</h3>
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">01 - KPIs</div>
+            <h2>Principais indicadores</h2>
+            <p>Dados consolidados dos primeiros dias de mobiliza&ccedil;&atilde;o, combinando base de campo e ritmo di&aacute;rio da opera&ccedil;&atilde;o.</p>
+          </div>
+
+          <div class="kpi-board">
+            <div class="kpi-grid">
+              <div class="kpi-card"><div class="kpi-number blue">238</div><div class="kpi-label">Submiss&otilde;es realizadas no formul&aacute;rio de campo</div></div>
+              <div class="kpi-card"><div class="kpi-number green">76%</div><div class="kpi-label">Da popula&ccedil;&atilde;o j&aacute; conhecia o programa</div></div>
+              <div class="kpi-card"><div class="kpi-number gold">89%</div><div class="kpi-label">Demonstraram potencial de comparecimento &agrave; carreta</div></div>
+              <div class="kpi-card"><div class="kpi-number">2</div><div class="kpi-label">Cidades cobertas na fase inicial da opera&ccedil;&atilde;o</div></div>
+              <div class="kpi-card"><div class="kpi-number green">~30</div><div class="kpi-label">Profissionais contratados e mobilizados em campo</div></div>
             </div>
 
-            <svg
-              class="kpi-trend__chart"
-              viewBox="0 0 760 300"
-              role="img"
-              aria-label="Gráfico de linha com atendimentos diários: 22 de março 37, 23 de março 72, 24 de março 102"
-            >
-              <defs>
-                <linearGradient id="trendArea" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35" />
-                  <stop
-                    offset="100%"
-                    stop-color="#60a5fa"
-                    stop-opacity="0.03"
-                  />
-                </linearGradient>
-              </defs>
+            <article class="kpi-trend" aria-labelledby="kpi-trend-title">
+              <div class="kpi-trend__head">
+                <h3 id="kpi-trend-title">Volume di&aacute;rio de atendimentos</h3>
+                <p>22/03 a 24/03</p>
+              </div>
 
-              <line x1="80" y1="220" x2="700" y2="220" class="chart-axis" />
+              <svg class="kpi-trend__chart" viewBox="0 0 760 300" role="img" aria-label="Gr&aacute;fico de linha com atendimentos di&aacute;rios: 22 de mar&ccedil;o 37, 23 de mar&ccedil;o 72, 24 de mar&ccedil;o 102">
+                <defs>
+                  <linearGradient id="trendArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"></stop>
+                    <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.03"></stop>
+                  </linearGradient>
+                </defs>
+                <line class="chart-axis" x1="80" y1="220" x2="700" y2="220"></line>
+                <line class="chart-grid" x1="80" y1="220" x2="700" y2="220"></line>
+                <line class="chart-grid" x1="80" y1="186" x2="700" y2="186"></line>
+                <line class="chart-grid" x1="80" y1="152" x2="700" y2="152"></line>
+                <line class="chart-grid" x1="80" y1="118" x2="700" y2="118"></line>
+                <line class="chart-grid" x1="80" y1="84" x2="700" y2="84"></line>
+                <line class="chart-grid" x1="80" y1="50" x2="700" y2="50"></line>
+                <text class="chart-tick" x="62" y="224">0</text>
+                <text class="chart-tick" x="54" y="190">25</text>
+                <text class="chart-tick" x="54" y="156">50</text>
+                <text class="chart-tick" x="54" y="122">75</text>
+                <text class="chart-tick" x="48" y="88">100</text>
+                <text class="chart-tick" x="48" y="54">125</text>
+                <path class="chart-area" d="M110 169.7 L390 122.1 L670 81.3 L670 220 L110 220 Z"></path>
+                <path class="chart-line" d="M110 169.7 L390 122.1 L670 81.3"></path>
+                <circle class="chart-point" cx="110" cy="169.7" r="6.5"></circle>
+                <circle class="chart-point" cx="390" cy="122.1" r="6.5"></circle>
+                <circle class="chart-point" cx="670" cy="81.3" r="6.5"></circle>
+                <text class="chart-value" x="110" y="156.1">37</text>
+                <text class="chart-value" x="390" y="108.5">72</text>
+                <text class="chart-value" x="670" y="67.7">102</text>
+                <text class="chart-label" x="110" y="248">22/03</text>
+                <text class="chart-label" x="390" y="248">23/03</text>
+                <text class="chart-label" x="670" y="248">24/03</text>
+              </svg>
+            </article>
+          </div>
+        </div>
 
-              <line x1="80" y1="220" x2="700" y2="220" class="chart-grid" />
-              <line x1="80" y1="186" x2="700" y2="186" class="chart-grid" />
-              <line x1="80" y1="152" x2="700" y2="152" class="chart-grid" />
-              <line x1="80" y1="118" x2="700" y2="118" class="chart-grid" />
-              <line x1="80" y1="84" x2="700" y2="84" class="chart-grid" />
-              <line x1="80" y1="50" x2="700" y2="50" class="chart-grid" />
+        <div class="slide-foot">
+          <span>KPIs e ritmo di&aacute;rio da mobiliza&ccedil;&atilde;o</span>
+          <span class="slide-foot__num">02</span>
+        </div>
+      </div>
+    </section>
 
-              <text x="62" y="224" class="chart-tick">0</text>
-              <text x="54" y="190" class="chart-tick">25</text>
-              <text x="54" y="156" class="chart-tick">50</text>
-              <text x="54" y="122" class="chart-tick">75</text>
-              <text x="48" y="88" class="chart-tick">100</text>
-              <text x="48" y="54" class="chart-tick">125</text>
+    <section class="pdf-page slide-trend">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Sequ&ecirc;ncia da Opera&ccedil;&atilde;o</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
 
-              <path
-                d="M110 169.7 L390 122.1 L670 81.3 L670 220 L110 220 Z"
-                class="chart-area"
-              />
-              <path d="M110 169.7 L390 122.1 L670 81.3" class="chart-line" />
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Linha do tempo da opera&ccedil;&atilde;o</h2>
+            <p>Da ativa&ccedil;&atilde;o do projeto ao segundo Dia D, a execu&ccedil;&atilde;o avan&ccedil;ou em oito marcos com continuidade entre prepara&ccedil;&atilde;o, rua e fechamento.</p>
+          </div>
 
-              <circle cx="110" cy="169.7" r="6.5" class="chart-point" />
-              <circle cx="390" cy="122.1" r="6.5" class="chart-point" />
-              <circle cx="670" cy="81.3" r="6.5" class="chart-point" />
+          <div class="timeline-overview">
+            <article class="timeline-step">
+              <span class="timeline-step__index">01</span>
+              <div class="timeline-step__date">13 de mar&ccedil;o</div>
+              <h3>Fechamento e planejamento</h3>
+              <p>In&iacute;cio do desenho operacional, defini&ccedil;&atilde;o de escopo e organiza&ccedil;&atilde;o da l&oacute;gica executiva.</p>
+            </article>
+            <article class="timeline-step">
+              <span class="timeline-step__index">02</span>
+              <div class="timeline-step__date">17 de mar&ccedil;o</div>
+              <h3>Sele&ccedil;&atilde;o de equipes</h3>
+              <p>Defini&ccedil;&atilde;o da coordena&ccedil;&atilde;o e mobiliza&ccedil;&atilde;o da equipe de campo para a fase de prepara&ccedil;&atilde;o.</p>
+            </article>
+            <article class="timeline-step">
+              <span class="timeline-step__index">03</span>
+              <div class="timeline-step__date">20 de mar&ccedil;o</div>
+              <h3>Treinamento</h3>
+              <p>Capacita&ccedil;&atilde;o em abordagem, Zoho, evid&ecirc;ncias, fluxo via WhatsApp e leitura operacional.</p>
+            </article>
+            <article class="timeline-step timeline-step--accent">
+              <span class="timeline-step__index">04</span>
+              <div class="timeline-step__date">21 de mar&ccedil;o</div>
+              <h3>Deslocamento</h3>
+              <p>Viagem superior a 12 horas, chegada da equipe e primeira estrutura&ccedil;&atilde;o local.</p>
+            </article>
+            <article class="timeline-step timeline-step--accent">
+              <span class="timeline-step__index">05</span>
+              <div class="timeline-step__date">22 de mar&ccedil;o</div>
+              <h3>Esquenta em Pil&atilde;o</h3>
+              <p>Pr&eacute;-cadastro, mapa de calor e leitura territorial que alimentaram o Dia D.</p>
+            </article>
+            <article class="timeline-step timeline-step--accent">
+              <span class="timeline-step__index">06</span>
+              <div class="timeline-step__date">23 de mar&ccedil;o</div>
+              <h3>Dia D em Pil&atilde;o</h3>
+              <p>Carreta, atendimento direto e convers&atilde;o em massa com base nas leituras do D-1.</p>
+            </article>
+            <article class="timeline-step timeline-step--accent">
+              <span class="timeline-step__index">07</span>
+              <div class="timeline-step__date">24 de mar&ccedil;o</div>
+              <h3>Opera&ccedil;&atilde;o em tr&ecirc;s frentes</h3>
+              <p>D+N em Pil&atilde;o, esquenta em Campo Alegre e treinamento remoto para expans&atilde;o.</p>
+            </article>
+            <article class="timeline-step timeline-step--accent">
+              <span class="timeline-step__index">08</span>
+              <div class="timeline-step__date">25 de mar&ccedil;o</div>
+              <h3>Dia D em Campo Alegre</h3>
+              <p>Nova carreta com base aquecida no dia anterior e 123 envios de mobiliza&ccedil;&atilde;o.</p>
+            </article>
+          </div>
+        </div>
 
-              <text x="110" y="156.1" class="chart-value">37</text>
-              <text x="390" y="108.5" class="chart-value">72</text>
-              <text x="670" y="67.7" class="chart-value">102</text>
+        <div class="slide-foot">
+          <span>Sequ&ecirc;ncia completa da opera&ccedil;&atilde;o em 13 dias</span>
+          <span class="slide-foot__num">03</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-prep-plan">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Cronograma - Planejamento</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
 
-              <text x="110" y="248" class="chart-label">22/03</text>
-              <text x="390" y="248" class="chart-label">23/03</text>
-              <text x="670" y="248" class="chart-label">24/03</text>
-            </svg>
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Fechamento, desenho e ativa&ccedil;&atilde;o da equipe</h2>
+            <p>Antes da rua, a opera&ccedil;&atilde;o consolidou m&eacute;todo, estrutura e pessoas respons&aacute;veis pela execu&ccedil;&atilde;o em campo.</p>
+          </div>
+
+          <article class="event-card event-card--plan" style="flex: 1 1 auto">
+            <div class="tl-content" style="height: 100%; align-content: start">
+              <div class="tl-date">13 a 17 de mar&ccedil;o</div>
+              <div class="tl-title">Fechamento, planejamento e sele&ccedil;&atilde;o de equipes</div>
+              <div class="tl-body">Encerramento do projeto junto ao cliente, defini&ccedil;&atilde;o do desenho operacional e sele&ccedil;&atilde;o da equipe de coordenadores e da equipe de campo para prepara&ccedil;&atilde;o da opera&ccedil;&atilde;o.</div>
+              <div class="tl-tags"><span class="tag">Gest&atilde;o</span><span class="tag">Planejamento</span><span class="tag blue">Equipe de Campo</span></div>
+              <div class="note-card" style="margin-top: 6px">
+                <div class="note-card__label">O que ficou pronto antes da rua</div>
+                <ul class="note-list">
+                  <li>Defini&ccedil;&atilde;o da l&oacute;gica operacional e do fluxo de atendimento.</li>
+                  <li>Organiza&ccedil;&atilde;o das frentes de campo, coordena&ccedil;&atilde;o regional e apoio administrativo.</li>
+                  <li>Ativa&ccedil;&atilde;o das frentes de treinamento e tecnologia para garantir padr&atilde;o e rastreabilidade.</li>
+                  <li>Prepara&ccedil;&atilde;o da base que sustentaria o esquenta, o Dia D e o fechamento posterior.</li>
+                </ul>
+              </div>
+            </div>
           </article>
         </div>
-      </div>
-    </div>
 
-    <!-- TIMELINE -->
-    <section id="timeline">
-      <div class="wrapper">
-        <div class="section-header">
-          <div class="section-number">02 — Cronograma</div>
-          <h2>Linha do Tempo da Operação</h2>
-          <p>
-            Evolução das atividades desde o fechamento do projeto até a execução
-            em campo.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="tl-item" style="animation-delay: 0.05s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">13 de março</div>
-              <div class="tl-title">Fechamento e Planejamento</div>
-              <div class="tl-body">
-                Encerramento do projeto junto ao cliente e início do
-                planejamento operacional detalhado para a execução em campo.
-              </div>
-              <div class="tl-tags">
-                <span class="tag">Gestão</span>
-                <span class="tag">Planejamento</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item" style="animation-delay: 0.08s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">17 de março</div>
-              <div class="tl-title">Seleção de Equipes</div>
-              <div class="tl-body">
-                Definição da equipe de coordenadores e seleção da equipe de
-                campo para preparação da operação.
-              </div>
-              <div class="tl-tags">
-                <span class="tag">Coordenação</span>
-                <span class="tag blue">Equipe de Campo</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item" style="animation-delay: 0.1s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">20 de março</div>
-              <div class="tl-title">Treinamento da Equipe de Campo</div>
-              <div class="tl-body">
-                Antes do início da rua, a equipe passou por capacitação completa com foco em abordagem porta a porta, uso do formulário Zoho, coleta de evidências, fluxo via WhatsApp e lógica de confiança na abordagem. Em paralelo, foi estruturado um dashboard de acompanhamento com produtividade por equipe, comparativo entre coordenadores e visualização geográfica das interações, permitindo leitura imediata da operação e ajuste rápido de rota.
-              </div>
-              <div class="tl-tags">
-                <span class="tag blue">Call Center</span>
-                <span class="tag blue">Equipe de Campo</span>
-                <span class="tag">Zoho</span>
-              </div>
-              <div class="tl-media-grid">
-                <img
-                  src="assets/evidencias/image (1).png"
-                  alt="Apresentacao do treinamento da equipe de campo"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <a
-                href="https://tldv.io/app/meetings/69bd7d1a230f040013755b22"
-                target="_blank"
-                rel="noreferrer"
-                >
-                <img
-                  src="assets/evidencias/treino-image.png"
-                  alt="Registro da reuniao de treinamento da equipe de campo"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-                </a>
-                <img
-                  src="assets/evidencias/print.jpeg"
-                  alt="Registro da reuniao de treinamento da equipe de campo"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/print2.jpeg"
-                  alt="Registro da reuniao de treinamento da equipe de campo"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-              </div>
-              
-            </div>
-          </div>
-
-          <div class="tl-item active" style="animation-delay: 0.15s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">21 de março</div>
-              <div class="tl-title">Início da Operação — Deslocamento</div>
-              <div class="tl-body">
-                Início da viagem com mais de 12 horas de deslocamento até Pilão
-                Arcado (BA). Conectividade Starlink ativada durante todo o
-                trajeto. Chegada e primeira hospedagem da equipe.
-              </div>
-              <div class="tl-tags">
-                <span class="tag blue">Starlink</span>
-                <span class="tag">+12h deslocamento</span>
-                <span class="tag">Hospedagem</span>
-              </div>
-              <div class="tl-media-grid">
-                <img
-                  src="assets/evidencias/image.png"
-                  alt="Mapa do trajeto até Pilão Arcado"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/IMG_6735.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-              </div>
-              <img
-                src="assets/evidencias/22-03-26 - Pilão Arcado - BA - Foto Ricardo Prado -8.jpg"
-                alt="Mapa do trajeto até Pilão Arcado"
-                class="tl-media-grid__item tl-media-grid__item--wide"
-                style="margin-top: 12px"
-              />
-            </div>
-          </div>
-
-          <div class="tl-item active" style="animation-delay: 0.2s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">22 de março — D-1 (Esquenta)</div>
-              <div class="tl-title">Mobilização em Campo — Pilão Arcado</div>
-              <div class="tl-body">
-                Início da mobilização ativa com abordagem porta a porta.
-                Aplicação do formulário de pré-cadastro via Zoho, coleta de
-                evidências e mapeamento do território. Dashboard de
-                monitoramento ativado em tempo real.
-              </div>
-              <div class="tl-tags">
-                <span class="tag green">37 submissões</span>
-                <span class="tag green">73% conheciam o programa</span>
-                <span class="tag blue">Mapa de calor</span>
-              </div>
-              <div class="tl-media-grid">
-                <img
-                  src="assets/evidencias/595b1930-32d3-48c2-a35f-b825c7695533.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/d34f53ac-27cd-4fd3-99eb-baeaf52587d0.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-                <img
-                  src="assets/evidencias/IMG_6714.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/687cda28-7299-4094-8ffa-f47f10016f79.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item active" style="animation-delay: 0.25s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">23 de março — Dia D (Carreta)</div>
-              <div class="tl-title">Execução da Ação Principal</div>
-              <div class="tl-body">
-                Instalação da estrutura central de atendimento com atração da
-                população (paredão, música, wi-fi). Conversão dos beneficiários
-                pré-cadastrados e atendimento direto. Dados do D-1 utilizados
-                para direcionar estratégia.
-              </div>
-              <div class="tl-tags">
-                <span class="tag green">Estrutura central</span>
-                <span class="tag green">Conversão</span>
-                <span class="tag">Beneficiários</span>
-              </div>
-              <div class="tl-media-grid">
-                <img
-                  src="assets/evidencias/image-carreta.png"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Itala Feitosa -  @ricardoprado_8 -2.jpg"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-                <img
-                  src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Gilvan Gonçalves, Kaliane, Laiane e Eliana -  @ricardoprado_8 -1.jpg"
-                  class="tl-media-grid__item tl-media-grid__item--wide"
-                />
-                <img
-                  src="assets/evidencias/afebcb7a-0dbe-423d-ad43-6044f40adc2e.JPEG.jpeg"
-                  class="tl-media-grid__item tl-media-grid__item--narrow"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item active" style="animation-delay: 0.28s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">24 de março — Operação em Três Frentes</div>
-              <div class="tl-title">Desdobramento regional após o Dia D</div>
-              <div class="tl-body">
-                O dia 24 concentrou a continuidade da operação com atuação
-                paralela em Pilão Arcado e Campo Alegre de Lourdes,
-                equilibrando relacionamento local, novo esquenta de campo e
-                treinamento remoto para expansão do modelo.
-              </div>
-              <div class="tl-tags">
-                <span class="tag blue">Pilão Arcado — D+N</span>
-                <span class="tag green">Campo Alegre de Lourdes — D-1</span>
-                <span class="tag">Treinamento Online Mirangaba</span>
-              </div>
-              <div class="tl-subsections">
-                <article class="tl-subsection">
-                  <div class="tl-subsection__eyebrow">Equipe regional</div>
-                  <h4>Ytala em Pilão Arcado no D+N</h4>
-                  <p>
-                    A execução não se encerra no evento principal. O desenho operacional já ativou pontos focais e mecanismos de continuidade para suporte via WhatsApp, apoio em CadÚnico, intermediação com CRAS e finalização de cadastros pendentes. Essa camada de continuidade é parte do valor entregue desde a medição inicial, porque ela depende de ativação prévia, articulação local e custo humano já mobilizado.
-                  </p>
-                  <div class="tl-media-grid">
-                    <img
-                      src="assets/evidencias/ytala1.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/ytala2.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                    <img
-                      src="assets/evidencias/ytala3.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/ytala4.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                  </div>
-                </article>
-                <article class="tl-subsection">
-                  <div class="tl-subsection__eyebrow">Mobilização</div>
-                  <h4>Esquenta de Campo Alegre de Lourdes</h4>
-                  <p>
-                    Ativacao do esquenta em Campo Alegre de Lourdes com entrada
-                    em campo, abordagem inicial e preparacao da base local para a
-                    proxima etapa operacional.
-                  </p>
-                  <div class="tl-media-grid">
-                    <img
-                      src="assets/evidencias/campo2wide.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/campo4.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                    <img
-                      src="assets/evidencias/campo3.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/campo5.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                  </div>
-                </article>
-                <article class="tl-subsection">
-                  <div class="tl-subsection__eyebrow">Treinamento</div>
-                  <h4>Treinamento Online de Mirangaba</h4>
-                  <p>
-                    Realizacao de treinamento remoto para alinhamento de processo,
-                    abordagem e uso das ferramentas, preparando a operacao em
-                    Mirangaba dentro do mesmo padrao de execucao.
-                  </p>
-                  <img
-                      src="assets/evidencias/treino-mirangaba.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                  />
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item" style="animation-delay: 0.3s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">25 de março - Dia D (Carreta)</div>
-              <div class="tl-title">Dia da carreta na cidade Campo Alegre de Lourdes</div>
-              <div class="tl-body">
-                Foi feito um envio no dia anterior para 123 pessoas que afirmaram que iriam
-                para carreta.
-              </div>
-              <div class="tl-tags">
-                <span class="tag green">Carreta</span>
-                <span class="tag">Campo Alegre de Lourdes</span>
-                <span class="tag blue">123 envios</span>
-              </div>
-              <div class="tl-media-grid">
-                    <img
-                      src="assets/evidencias/campo-dwide.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/campo-d1.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                    <img
-                      src="assets/evidencias/campo-d4wide.png"
-                      class="tl-media-grid__item tl-media-grid__item--wide"
-                    />
-                    <img
-                      src="assets/evidencias/campo-d2.png"
-                      class="tl-media-grid__item tl-media-grid__item--narrow"
-                    />
-                  </div>
-            </div>
-          </div>
+        <div class="slide-foot">
+          <span>Fechamento do projeto, desenho operacional e sele&ccedil;&atilde;o</span>
+          <span class="slide-foot__num">04</span>
         </div>
       </div>
     </section>
 
-    <!-- STRATEGY -->
-    <section id="strategy">
-      <div class="wrapper">
-        <div class="section-header">
-          <div class="section-number">03 — Modelo Operacional</div>
-          <h2>Estratégia em 3 Fases</h2>
-          <p>
-            A operação foi estruturada para garantir volume no Dia D e
-            continuidade de impacto nas semanas seguintes.
-          </p>
+    <section class="pdf-page slide-prep-training">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Cronograma - Treinamento</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
         </div>
 
-        <div class="strategy-grid">
-          <div class="strategy-card" style="animation-delay: 0.05s">
-            <span class="strategy-icon">📡</span>
-            <div class="strategy-phase">Fase 01</div>
-            <div class="strategy-title">D-1 — Esquenta</div>
-            <p class="strategy-desc">
-              Mobilização prévia e pré-cadastro da população para garantir fluxo
-              no Dia D.
-            </p>
-            <ul class="strategy-list">
-              <li>Abordagem porta a porta</li>
-              <li>Apresentação do programa</li>
-              <li>Formulário Zoho (pré-cadastro)</li>
-              <li>Foto da TV e fachada</li>
-              <li>Verificação CadÚnico</li>
-            </ul>
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Treinamento da equipe de campo</h2>
+            <p>O alinhamento cobriu abordagem, Zoho, evid&ecirc;ncias, WhatsApp e leitura da opera&ccedil;&atilde;o antes da entrada na rua.</p>
           </div>
 
-          <div
-            class="strategy-card"
-            style="animation-delay: 0.1s; border-color: rgba(59, 130, 246, 0.3)"
-          >
-            <span class="strategy-icon">🚛</span>
-            <div class="strategy-phase">Fase 02</div>
-            <div class="strategy-title">Dia D — Carreta</div>
-            <p class="strategy-desc">
-              Execução central dos atendimentos com estrutura de atração e
-              conversão em massa.
-            </p>
-            <ul class="strategy-list">
-              <li>Estrutura central de atendimento</li>
-              <li>Paredão + Música + Wi-fi</li>
-              <li>Conversão de beneficiários</li>
-              <li>Atendimento ágil (2–5 min)</li>
-              <li>Dados D-1 como base estratégica</li>
-            </ul>
-          </div>
+          <div class="prep-grid" style="grid-template-columns: .92fr 1.08fr">
+            <article class="event-card event-card--training">
+              <div class="tl-content">
+                <div class="tl-date">20 de mar&ccedil;o</div>
+                <div class="tl-title">Capacita&ccedil;&atilde;o operacional</div>
+                <div class="tl-body">Antes do in&iacute;cio da rua, a equipe passou por capacita&ccedil;&atilde;o completa com foco em abordagem porta a porta, uso do formul&aacute;rio Zoho, coleta de evid&ecirc;ncias, fluxo via WhatsApp e leitura operacional.</div>
+                <div class="tl-tags"><span class="tag blue">Call Center</span><span class="tag blue">Equipe de Campo</span><span class="tag">Zoho</span></div>
+              </div>
+            </article>
 
-          <div class="strategy-card" style="animation-delay: 0.15s">
-            <span class="strategy-icon">🤝</span>
-            <div class="strategy-phase">Fase 03</div>
-            <div class="strategy-title">D+N — Relacionamento</div>
-            <p class="strategy-desc">
-              30 dias de acompanhamento pós-carreta por pontos focais locais.
-            </p>
-            <ul class="strategy-list">
-              <li>Pontos focais na cidade</li>
-              <li>Equipes locais (5–10 pessoas)</li>
-              <li>Contato individual com beneficiários</li>
-              <li>Auxílio na Regularização do CadÚnico</li>
-              <li>Intermediação com CRAS</li>
-            </ul>
+            <div class="info-block" style="display: flex; flex-direction: column; justify-content: space-between">
+              <img alt="Treinamento da equipe de campo" class="evidence-media" src="assets/evidencias/image (1).png" style="height: 170px; object-fit: contain; margin-bottom: 12px" />
+              <ul class="note-list">
+                <li>Padroniza&ccedil;&atilde;o do discurso em campo.</li>
+                <li>Orienta&ccedil;&atilde;o sobre registros obrigat&oacute;rios e evid&ecirc;ncias.</li>
+                <li>Simula&ccedil;&atilde;o do fluxo de atendimento e ativa&ccedil;&atilde;o do dashboard.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- Pontos Focais -->
-        <div class="focal-card">
-          <div>
-            <h3>Pontos Focais — Papel Estratégico</h3>
-            <p
-              style="
-                font-size: 13px;
-                color: var(--text-muted);
-                margin-bottom: 16px;
-                font-weight: 300;
-              "
-            >
-              Lideranças regionais responsáveis por manter o relacionamento com
-              a população após a passagem da carreta, garantindo a continuidade
-              e o fechamento dos atendimentos.
-            </p>
-            <ul class="focal-items">
-              <li>Elo entre o projeto e a população local</li>
-              <li>Permanecem na cidade após a ação</li>
-              <li>Lideram equipes de 5 a 10 pessoas</li>
-              <li>Contato individual com beneficiários</li>
-              <li>Apoio na finalização de cadastros pendentes</li>
-            </ul>
+        <div class="slide-foot">
+          <span>Treinamento e alinhamento da equipe</span>
+          <span class="slide-foot__num">05</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-travel">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Cronograma - Deslocamento</div>
+            </div>
           </div>
-          <div>
-            <h3>Atuação Prática</h3>
-            <ul class="focal-items">
-              <li>Auxílio na regularização do CadÚnico</li>
-              <li>Apoio no envio de documentos</li>
-              <li>Acompanhamento de pendências</li>
-              <li>Fechamento de atendimentos via WhatsApp</li>
-              <li>Intermediação com CRAS e assistentes sociais</li>
-              <li>Maximização do número de conversões</li>
-            </ul>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Entrada em campo e log&iacute;stica de viagem</h2>
+            <p>O deslocamento abriu a opera&ccedil;&atilde;o territorial, com chegada da equipe, hospedagem e comunica&ccedil;&atilde;o ativa durante o trajeto.</p>
           </div>
+
+          <div class="travel-shell">
+            <article class="event-card event-card--travel">
+              <div class="tl-content">
+                <div class="tl-date">21 de mar&ccedil;o</div>
+                <div class="tl-title">In&iacute;cio da opera&ccedil;&atilde;o - deslocamento</div>
+                <div class="tl-body">In&iacute;cio da viagem com mais de 12 horas de deslocamento at&eacute; Pil&atilde;o Arcado (BA), com comunica&ccedil;&atilde;o ativa durante todo o trajeto, chegada da equipe e primeira estrutura&ccedil;&atilde;o local para a execu&ccedil;&atilde;o em campo.</div>
+                <div class="tl-tags"><span class="tag blue">Starlink</span><span class="tag">+12h deslocamento</span><span class="tag">Hospedagem</span></div>
+              </div>
+            </article>
+
+            <div class="travel-visuals">
+              <div class="tl-media-grid">
+                <img src="assets/evidencias/image.png" alt="Mapa do trajeto at&eacute; Pil&atilde;o Arcado" class="tl-media-grid__item tl-media-grid__item--wide" style="object-fit: contain" />
+                <img src="assets/evidencias/52e483db-45e6-4936-9631-82fe3bc60a06.jpeg" alt="Vans utilizadas no deslocamento da opera&ccedil;&atilde;o" class="tl-media-grid__item tl-media-grid__item--narrow" />
+              </div>
+              <div class="travel-photo-frame">
+                <img src="assets/evidencias/22-03-26 - Pilão Arcado - BA - Foto Ricardo Prado -8.jpg" alt="Equipe chegando a Pil&atilde;o Arcado para in&iacute;cio da opera&ccedil;&atilde;o" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Deslocamento, chegada e base local da opera&ccedil;&atilde;o</span>
+<span class="slide-foot__num">06</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-execution">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Cronograma - Execu&ccedil;&atilde;o</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Esquenta - D-1</h2>
+            <p>A mobiliza&ccedil;&atilde;o pr&eacute;via gerou pr&eacute;-cadastros, evid&ecirc;ncias e leitura territorial.</p>
+          </div>
+
+          <div class="event-highlight">
+            <article class="event-card event-highlight__info">
+              <div class="tl-content">
+                <div class="tl-date">22 de mar&ccedil;o - D-1</div>
+                <div class="tl-title">Mobiliza&ccedil;&atilde;o em Campo - Pil&atilde;o Arcado</div>
+                <div class="tl-body">Abordagem porta a porta, aplica&ccedil;&atilde;o do formul&aacute;rio Zoho, coleta de evid&ecirc;ncias e ativa&ccedil;&atilde;o do dashboard em tempo real.</div>
+                <div class="tl-tags"><span class="tag green">37 submiss&otilde;es</span><span class="tag green">73% conheciam o programa</span><span class="tag blue">Mapa de calor</span></div>
+              </div>
+            </article>
+
+            <div class="event-highlight__media">
+              <figure class="media-frame"><img src="assets/evidencias/595b1930-32d3-48c2-a35f-b825c7695533.jpeg" alt="Mobiliza&ccedil;&atilde;o em campo durante o esquenta" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/d34f53ac-27cd-4fd3-99eb-baeaf52587d0.jpeg" alt="Abordagem com benefici&aacute;rios na fase de esquenta" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/IMG_6714.jpeg" alt="Equipe registrando pr&eacute;-cadastros" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/687cda28-7299-4094-8ffa-f47f10016f79.jpeg" alt="Registro de mobiliza&ccedil;&atilde;o territorial" /></figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Pr&eacute;-cadastro, evid&ecirc;ncias e leitura territorial</span>
+<span class="slide-foot__num">07</span>
         </div>
       </div>
     </section>
 
-    <!-- RESULTS -->
-    <section id="results">
-      <div class="wrapper">
-        <div class="section-header">
-          <div class="section-number">04 — Dados Coletados</div>
-          <h2>Insights dos primeiros dias</h2>
+    <section class="pdf-page slide-carreta">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Cronograma - Execu&ccedil;&atilde;o</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
         </div>
 
-        <div class="results-grid">
-          <div class="result-card">
-            <h3
-              style="
-                font-family: &quot;Space Grotesk&quot;, sans-serif;
-                font-size: 16px;
-                color: #fff;
-                margin-bottom: 6px;
-              "
-            >
-              Perfil da População
-            </h3>
-            <p
-              style="
-                font-size: 12px;
-                color: var(--text-muted);
-                margin-bottom: 4px;
-              "
-            >
-              Dados coletados via formulário Zoho
-            </p>
-            <div class="progress-bar-wrap">
-              <div class="progress-item">
-                <div class="progress-label">
-                  <span>Conheciam o programa</span>
-                  <span>76%</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill" style="width: 76%"></div>
-                </div>
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>Pil&atilde;o Arcado - Dia D</h2>
+            <p>A carreta concentrou estrutura central, atendimento direto e convers&atilde;o da base aquecida no dia anterior.</p>
+          </div>
+
+          <div class="event-highlight">
+            <article class="event-card event-highlight__info">
+              <div class="tl-content">
+                <div class="tl-date">23 de mar&ccedil;o - Dia D</div>
+                <div class="tl-title">Execu&ccedil;&atilde;o da a&ccedil;&atilde;o principal</div>
+                <div class="tl-body">Instala&ccedil;&atilde;o da estrutura central de atendimento com atra&ccedil;&atilde;o da popula&ccedil;&atilde;o, convers&atilde;o dos benefici&aacute;rios pr&eacute;-cadastrados e atendimento direto. Os dados do D-1 foram usados para orientar a estrat&eacute;gia de campo.</div>
+                <div class="tl-tags"><span class="tag green">Estrutura central</span><span class="tag green">Convers&atilde;o</span><span class="tag">Benefici&aacute;rios</span></div>
               </div>
-              <div class="progress-item">
-                <div class="progress-label">
-                  <span>Potencial de comparecimento</span>
-                  <span>89%</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill" style="width: 89%"></div>
-                </div>
+            </article>
+
+            <div class="event-highlight__media">
+              <figure class="media-frame"><img src="assets/evidencias/image-carreta.png" alt="Estrutura da carreta no Dia D em Pil&atilde;o Arcado" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Itala Feitosa -  @ricardoprado_8 -2.jpg" alt="Atendimento a benefici&aacute;rios durante a carreta em Pil&atilde;o Arcado" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Gilvan Gonçalves, Kaliane, Laiane e Eliana -  @ricardoprado_8 -1.jpg" alt="Registro do Dia D com benefici&aacute;rios em Pil&atilde;o Arcado" /></figure>
+              <figure class="media-frame"><img src="assets/evidencias/afebcb7a-0dbe-423d-ad43-6044f40adc2e.JPEG.jpeg" alt="Atendimento dentro da carreta durante a a&ccedil;&atilde;o principal" /></figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Carreta, atendimento e convers&atilde;o no Dia D</span>
+<span class="slide-foot__num">08</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-focus">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Linha do Tempo</div>
+              <div class="slide-head__title">Continuidade e Segunda Frente</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">02 - Cronograma</div>
+            <h2>24 e 25 de mar&ccedil;o - continuidade e segunda frente</h2>
+            <p>Depois do primeiro Dia D, a opera&ccedil;&atilde;o seguiu em tr&ecirc;s frentes e j&aacute; replicou o modelo em Campo Alegre de Lourdes.</p>
+          </div>
+
+          <div class="focus-layout">
+            <article class="event-card">
+              <div class="tl-content">
+                <div class="tl-date">24 de mar&ccedil;o - Opera&ccedil;&atilde;o em tr&ecirc;s frentes</div>
+                <div class="tl-title">Continuidade, novo esquenta e expans&atilde;o</div>
+                <div class="tl-body">O dia 24 concentrou a continuidade da opera&ccedil;&atilde;o com atua&ccedil;&atilde;o paralela em Pil&atilde;o Arcado e Campo Alegre de Lourdes, equilibrando relacionamento local, novo esquenta de campo e treinamento remoto para expans&atilde;o do modelo.</div>
+                <div class="tl-tags"><span class="tag blue">Pil&atilde;o Arcado - D+N</span><span class="tag green">Campo Alegre - D-1</span><span class="tag">Treinamento Mirangaba</span></div>
               </div>
-              <div class="progress-item">
-                <div class="progress-label">
-                  <span>Possuem CadÚnico</span>
-                  <span>85%+</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill green" style="width: 85%"></div>
-                </div>
+            </article>
+
+            <div class="stack-cards">
+              <div class="info-block">
+                <h3 style="font-size: 18px; color: #fff; margin-bottom: 10px">Campo Alegre de Lourdes - Dia D</h3>
+                <p class="info-block__text">No dia 25, a carreta foi ativada em Campo Alegre de Lourdes com base aquecida no dia anterior e envio direcionado para 123 pessoas que afirmaram que iriam para a a&ccedil;&atilde;o.</p>
+                <img src="assets/evidencias/campo-dwide.png" alt="Estrutura da carreta em Campo Alegre de Lourdes" class="evidence-media" style="height: 130px; object-fit: cover; margin-top: 12px" />
+              </div>
+              <div class="info-block">
+                <h3 style="font-size: 18px; color: #fff; margin-bottom: 10px">Leitura de continuidade</h3>
+                <ul class="focal-items">
+                  <li>Ytala sustentou o D+N em Pil&atilde;o Arcado.</li>
+                  <li>Campo Alegre recebeu novo esquenta territorial.</li>
+                  <li>Mirangaba entrou em prepara&ccedil;&atilde;o por treinamento remoto.</li>
+                  <li>A opera&ccedil;&atilde;o demonstrou capacidade de manter e abrir frentes na mesma janela.</li>
+                </ul>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="result-card">
-            <h3
-              style="
-                font-family: &quot;Space Grotesk&quot;, sans-serif;
-                font-size: 16px;
-                color: #fff;
-                margin-bottom: 6px;
-              "
-            >
-              Percepções de Campo
-            </h3>
-            <p
-              style="
-                font-size: 12px;
-                color: var(--text-muted);
-                margin-bottom: 16px;
-              "
-            >
-              Observações da equipe durante a mobilização
-            </p>
-            <ul class="focal-items">
-              <li>Parte da população já havia sido atendida anteriormente</li>
-              <li>Alta presença de antenas já instaladas na região</li>
-              <li>Necessidade de foco em áreas com menor cobertura</li>
-              <li>Alta receptividade ao programa nas abordagens</li>
-              <li>Mapa de calor gerado para direcionar o Dia D</li>
-            </ul>
+        <div class="slide-foot">
+          <span>Continuidade local e replica&ccedil;&atilde;o do modelo em Campo Alegre</span>
+<span class="slide-foot__num">09</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-strategy">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Estrat&eacute;gia</div>
+              <div class="slide-head__title">Modelo Operacional</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">03 - Modelo Operacional</div>
+            <h2>Estrat&eacute;gia em 3 fases</h2>
+            <p>O desenho operacional combina aquecimento, convers&atilde;o e continuidade local.</p>
           </div>
 
-          <div class="result-card wide">
-            <h3
-              style="
-                font-family: &quot;Space Grotesk&quot;, sans-serif;
-                font-size: 16px;
-                color: #fff;
-                margin-bottom: 6px;
-              "
-            >
-              Dashboard de Monitoramento em Tempo Real
-            </h3>
-            <div class="dashboard-split">
-              <div class="dashboard-main">
-                <p
-                  style="
-                    font-size: 13px;
-                    color: var(--text-muted);
-                    margin-bottom: 16px;
-                    font-weight: 300;
-                  "
-                >
-                  Após o primeiro dia de operação, foi estruturado um dashboard de
-                  acompanhamento com base nas respostas coletadas pela equipe de
-                  campo. Permitiu monitoramento de produtividade por equipe, análise
-                  comparativa entre coordenadores e visualização geográfica das
-                  interações via mapa de calor.
-                </p>
-                <div
-                  style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px"
-                >
-                  <div
-                    style="
-                      background: var(--surface2);
-                      border: 1px solid var(--border);
-                      border-radius: 12px;
-                      padding: 16px 20px;
-                      flex: 1;
-                      min-width: 160px;
-                    "
-                  >
-                    <div
-                      style="
-                        font-size: 10px;
-                        text-transform: uppercase;
-                        letter-spacing: 0.08em;
-                        color: var(--text-muted);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      Acompanhamento
-                    </div>
-                    <div
-                      style="font-size: 14px; color: var(--text); font-weight: 500"
-                    >
-                      Produtividade por equipe
-                    </div>
-                  </div>
-                  <div
-                    style="
-                      background: var(--surface2);
-                      border: 1px solid var(--border);
-                      border-radius: 12px;
-                      padding: 16px 20px;
-                      flex: 1;
-                      min-width: 160px;
-                    "
-                  >
-                    <div
-                      style="
-                        font-size: 10px;
-                        text-transform: uppercase;
-                        letter-spacing: 0.08em;
-                        color: var(--text-muted);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      Geográfico
-                    </div>
-                    <div
-                      style="font-size: 14px; color: var(--text); font-weight: 500"
-                    >
-                      Mapa de calor das abordagens
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href="https://dashboard-brasil-antenado.netlify.app/"
-                  target="_blank"
-                  class="dashboard-url"
-                >
-                  <img
-                    src="assets/logo.png"
-                    alt="Logo do Dashboard"
-                    class="dashboard-url__logo"
-                  />
-                  <span class="dashboard-url__text">
-                    <span class="dashboard-url__title">Dashboard Brasil Antenado</span>
-                    <span class="dashboard-url__meta">Acompanhar monitoramento em tempo real</span>
-                  </span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                    />
-                    <polyline points="15,3 21,3 21,9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
+          <div class="phase-slide">
+            <div class="phase-intro">A opera&ccedil;&atilde;o foi desenhada para gerar fluxo no Dia D, converter a base aquecida e sustentar o fechamento depois da carreta.</div>
+
+            <div class="strategy-grid">
+              <div class="strategy-card"><span class="strategy-icon">01</span><div class="strategy-phase">Fase 01</div><div class="strategy-title">D-1 - Esquenta</div><p class="strategy-desc">Mobiliza&ccedil;&atilde;o pr&eacute;via para garantir base de atendimento.</p><ul class="strategy-list"><li>Abordagem porta a porta</li><li>Pr&eacute;-cadastro via Zoho</li><li>Verifica&ccedil;&atilde;o de Cad&Uacute;nico</li></ul></div>
+              <div class="strategy-card" style="border-color: rgba(59, 130, 246, 0.3)"><span class="strategy-icon">02</span><div class="strategy-phase">Fase 02</div><div class="strategy-title">Dia D - Carreta</div><p class="strategy-desc">Atendimento central com atra&ccedil;&atilde;o e convers&atilde;o.</p><ul class="strategy-list"><li>Estrutura central</li><li>Convers&atilde;o dos benefici&aacute;rios</li><li>Dados do D-1 como base</li></ul></div>
+              <div class="strategy-card"><span class="strategy-icon">03</span><div class="strategy-phase">Fase 03</div><div class="strategy-title">D+N - Relacionamento</div><p class="strategy-desc">Continuidade com pontos focais locais.</p><ul class="strategy-list"><li>Pontos focais na cidade</li><li>Apoio em documenta&ccedil;&atilde;o</li><li>Intermedia&ccedil;&atilde;o com CRAS</li></ul></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Fases da estrat&eacute;gia operacional</span>
+          <span class="slide-foot__num">10</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-focal">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Estrat&eacute;gia</div>
+              <div class="slide-head__title">Pontos Focais</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">03 - Modelo Operacional</div>
+            <h2>Pontos focais e continuidade local</h2>
+            <p>Essa camada garante perman&ecirc;ncia territorial ap&oacute;s a a&ccedil;&atilde;o principal e sustenta o fechamento dos atendimentos.</p>
+          </div>
+
+          <div class="team-page" style="grid-template-columns: 1fr 1fr">
+            <div class="info-block">
+              <h3>Papel estrat&eacute;gico</h3>
+              <ul class="note-list">
+                <li>Elo entre o projeto e a popula&ccedil;&atilde;o local.</li>
+                <li>Permanecem na cidade ap&oacute;s a a&ccedil;&atilde;o principal.</li>
+                <li>Lideram equipes de 5 a 10 pessoas.</li>
+                <li>Apoiam o fechamento de cadastros pendentes.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3>Atua&ccedil;&atilde;o pr&aacute;tica</h3>
+              <ul class="note-list">
+                <li>Regulariza&ccedil;&atilde;o de Cad&Uacute;nico.</li>
+                <li>Contato individual com benefici&aacute;rios.</li>
+                <li>Intermedia&ccedil;&atilde;o com CRAS e assist&ecirc;ncia social.</li>
+                <li>Fechamento de atendimentos via WhatsApp.</li>
+              </ul>
+              <div class="note-card" style="margin-top: auto">
+                <div class="note-card__label">Continuidade</div>
+                <p>O modelo n&atilde;o encerra na carreta: ele deixa estrutura local para relacionamento, retorno e resolu&ccedil;&atilde;o de pend&ecirc;ncias.</p>
               </div>
-              <figure class="dashboard-media">
-                <img
-                  src="assets/evidencias/dash2.png"
-                  alt="Mapa de calor das abordagens em Pilao Arcado"
-                  class="evidence-media"
-                />
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Pontos focais e sustenta&ccedil;&atilde;o local</span>
+          <span class="slide-foot__num">11</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-results">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Resultados</div>
+              <div class="slide-head__title">Dados Coletados</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">04 - Dados Coletados</div>
+            <h2>Insights dos primeiros dias</h2>
+            <p>Leitura inicial sobre perfil da popula&ccedil;&atilde;o e observa&ccedil;&otilde;es pr&aacute;ticas da equipe durante a mobiliza&ccedil;&atilde;o.</p>
+          </div>
+
+          <div class="results-summary">
+            <div class="result-card">
+              <h3 style="font-size: 16px; color: #fff; margin-bottom: 6px">Perfil da popula&ccedil;&atilde;o</h3>
+              <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px">Dados coletados via formul&aacute;rio Zoho</p>
+              <div class="progress-bar-wrap">
+                <div class="progress-item"><div class="progress-label"><span>Conheciam o programa</span><span>76%</span></div><div class="progress-track"><div class="progress-fill" style="width: 76%"></div></div></div>
+                <div class="progress-item"><div class="progress-label"><span>Potencial de comparecimento</span><span>89%</span></div><div class="progress-track"><div class="progress-fill" style="width: 89%"></div></div></div>
+                <div class="progress-item"><div class="progress-label"><span>Possuem Cad&Uacute;nico</span><span>85%+</span></div><div class="progress-track"><div class="progress-fill green" style="width: 85%"></div></div></div>
+              </div>
+            </div>
+
+            <div class="result-card">
+              <h3 style="font-size: 16px; color: #fff; margin-bottom: 6px">Percep&ccedil;&otilde;es de campo</h3>
+              <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px">Observa&ccedil;&otilde;es da equipe durante a mobiliza&ccedil;&atilde;o</p>
+              <ul class="focal-items">
+                <li>Parte da popula&ccedil;&atilde;o j&aacute; havia sido atendida anteriormente</li>
+                <li>Alta presen&ccedil;a de antenas j&aacute; instaladas na regi&atilde;o</li>
+                <li>Necessidade de foco em &aacute;reas com menor cobertura</li>
+                <li>Alta receptividade ao programa nas abordagens</li>
+                <li>Mapa de calor usado para direcionar o Dia D</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Perfil da popula&ccedil;&atilde;o e percep&ccedil;&otilde;es de campo</span>
+<span class="slide-foot__num">12</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pdf-page slide-dashboard">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Resultados</div>
+              <div class="slide-head__title">Monitoramento</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">04 - Dados Coletados</div>
+            <h2>Dashboard e gest&atilde;o em tempo real</h2>
+            <p>O acompanhamento digital consolidou produtividade, comparativos e vis&atilde;o geogr&aacute;fica para apoiar leitura di&aacute;ria e corre&ccedil;&atilde;o r&aacute;pida de rota.</p>
+          </div>
+
+          <div class="dashboard-slide">
+            <div class="result-card">
+              <h3 style="font-size: 16px; color: #fff; margin-bottom: 8px">Monitoramento operacional</h3>
+              <p class="info-block__text">Ap&oacute;s o primeiro dia, o dashboard passou a consolidar respostas, produtividade e concentra&ccedil;&atilde;o territorial da equipe.</p>
+              <figure class="dashboard-media" style="margin-top: 12px; height: 142px">
+                <img src="assets/evidencias/dash2.png" alt="Mapa de calor das abordagens em Pil&atilde;o Arcado" class="evidence-media" />
               </figure>
-            </div>
-          </div>
-
-          <div class="result-card wide structural-card">
-            <div class="structural-card__header">
-              <div class="structural-card__eyebrow">Camada estruturante da operação</div>
-              <h3 class="structural-card__title">
-                Papel estruturante de treinamento, tecnologia e monitoramento
-              </h3>
-              <p class="structural-card__lead">
-                Essas frentes não atuam apenas como suporte operacional. Elas
-                estruturam padrão de execução, qualidade de dados,
-                rastreabilidade e leitura contínua da operação em campo.
-              </p>
+              <a class="dashboard-url" href="https://dashboard-brasil-antenado.netlify.app/" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15,3 21,3 21,9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Dashboard Brasil Antenado
+              </a>
             </div>
 
-            <div class="structural-card__layout">
-              <div class="structural-card__responsibilities">
-                <article class="structural-pill">
-                  <span class="structural-pill__index">01</span>
-                  <h4>Padronização</h4>
-                  <p>Garantir consistência da abordagem em campo.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">02</span>
-                  <h4>Qualidade dos dados</h4>
-                  <p>Assegurar coleta confiável e comparável.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">03</span>
-                  <h4>Evidências em tempo real</h4>
-                  <p>Viabilizar registro e envio contínuo das interações.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">04</span>
-                  <h4>Monitoramento contínuo</h4>
-                  <p>Permitir acompanhamento operacional ao longo da execução.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">05</span>
-                  <h4>Decisão orientada por dados</h4>
-                  <p>Apoiar ajustes de rota com base em leitura operacional.</p>
-                </article>
+            <div class="result-card">
+              <h3 style="font-size: 16px; color: #fff; margin-bottom: 6px">M&eacute;tricas e camada estruturante</h3>
+              <div class="metrics-board">
+                <div class="metric-chip"><div class="metric-chip__label">Padroniza&ccedil;&atilde;o</div><div class="metric-chip__value">Consist&ecirc;ncia da abordagem</div></div>
+                <div class="metric-chip"><div class="metric-chip__label">Qualidade</div><div class="metric-chip__value">Coleta confi&aacute;vel de dados</div></div>
+                <div class="metric-chip"><div class="metric-chip__label">Rastreabilidade</div><div class="metric-chip__value">Evid&ecirc;ncias e monitoramento</div></div>
+                <div class="metric-chip"><div class="metric-chip__label">Decis&atilde;o</div><div class="metric-chip__value">Prioriza&ccedil;&atilde;o territorial</div></div>
               </div>
-
-              <aside class="structural-card__aside">
-                <div class="structural-card__aside-label">Leitura contratual</div>
-                <p>
-                  Essas frentes constituem entregas estruturais previstas nas
-                  linhas de Dados, Gestão e Treinamento do contrato, sendo
-                  indispensáveis para validação, rastreabilidade e
-                  escalabilidade da operação.
-                </p>
-              </aside>
-            </div>
-
-            <div class="structural-card__footer">
-              <p>
-                O uso de formulários estruturados, sistemas de acompanhamento e
-                dashboards operacionais possibilitou rastreabilidade completa
-                das interações realizadas em campo, condição essencial para
-                validação das entregas e continuidade da operação.
-              </p>
-              <p>
-                Por isso, essas atividades devem ser lidas como parte do valor
-                entregue na operação, compondo a base de dados, controle e
-                gestão necessária para execução em escala.
-              </p>
+              <div class="note-card" style="margin-top: 12px">
+                <div class="note-card__label">Camada contratual</div>
+                <p>Dados, gest&atilde;o e treinamento estruturam valida&ccedil;&atilde;o, rastreabilidade e escalabilidade da opera&ccedil;&atilde;o.</p>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Dashboard e tomada de decis&atilde;o em tempo real</span>
+          <span class="slide-foot__num">13</span>
+        </div>
+      </div>
+    </section>
+    <section class="pdf-page slide-team">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Equipe e Log&iacute;stica</div>
+              <div class="slide-head__title">Estrutura Operacional</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">05 - Estrutura Operacional</div>
+            <h2>Equipe mobilizada</h2>
+            <p>Estrutura humana organizada para viabilizar campo e p&oacute;s-carreta.</p>
+          </div>
+
+          <div class="team-page" style="grid-template-columns: 1.04fr .96fr">
+            <div class="info-block">
+              <h3>Composi&ccedil;&atilde;o da equipe (~30 profissionais)</h3>
+              <ul class="cost-list">
+                <li><span class="cost-dot"></span>Equipe de campo</li>
+                <li><span class="cost-dot"></span>Coordena&ccedil;&atilde;o de opera&ccedil;&atilde;o</li>
+                <li><span class="cost-dot"></span>Suporte administrativo</li>
+                <li><span class="cost-dot" style="background: var(--green)"></span>Pontos focais locais</li>
+              </ul>
+              <img alt="Equipe de campo durante mobiliza&ccedil;&atilde;o" class="evidence-media" src="assets/evidencias/70740cd7-3469-4369-914d-261f20576fd6.jpeg" style="height: 120px; object-fit: contain; background: rgba(8, 12, 20, 0.72)" />
+            </div>
+
+            <div class="info-block" style="justify-content: center; display: flex; flex-direction: column">
+              <div class="note-card__label">Distribui&ccedil;&atilde;o operacional</div>
+              <ul class="note-list">
+                <li>Time distribu&iacute;do entre rua, coordena&ccedil;&atilde;o e suporte</li>
+                <li>Continuidade garantida por lideran&ccedil;as regionais</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Equipe mobilizada para campo e continuidade</span>
+          <span class="slide-foot__num">14</span>
         </div>
       </div>
     </section>
 
-    <!-- TEAM & LOGISTICS -->
-    <section id="team">
-      <div class="wrapper">
-        <div class="section-header">
-          <div class="section-number">05 — Estrutura Operacional</div>
-          <h2>Equipe e Logística</h2>
-            <p>
-              Mesmo na fase inicial de cobertura, a operação já exigiu a mobilização de uma estrutura humana e logística completa para sustentar a execução do projeto em janela comprimida. Foram mobilizados aproximadamente 30 profissionais entre equipe de rua, coordenação de campo, coordenação regional, apoio administrativo/financeiro da operação e referências locais, além da ativação de coordenação de treinamento e coordenação de tecnologia para garantir padrão de abordagem, captura de dados e monitoramento em tempo real.
-            </p>
+    <section class="pdf-page slide-infra">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Equipe e Log&iacute;stica</div>
+              <div class="slide-head__title">Custos e Infraestrutura</div>
+            </div>
+          </div>
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
         </div>
 
-
-        <div class="team-info">
-          <div class="info-block">
-            <h3>Composição da Equipe (~30 profissionais)</h3>
-            <ul class="cost-list">
-              <li>
-                <span class="cost-dot"></span>Equipe de campo — mobilização
-                porta a porta
-              </li>
-              <li><span class="cost-dot"></span>Coordenadores de operação</li>
-              <li>
-                <span class="cost-dot"></span>Apoio administrativo e financeiro
-              </li>
-              <li>
-                <span class="cost-dot" style="background: var(--green)"></span
-                >Pontos focais locais (pós-carreta)
-              </li>
-            </ul>
-            <img
-              src="assets/evidencias/70740cd7-3469-4369-914d-261f20576fd6.jpeg"
-              alt="Equipe de campo durante mobilização"
-              class="evidence-media"
-              style="margin-top: 16px; border-radius: 12px; max-height: 420px"
-            />
+        <div class="slide-body">
+          <div class="section-header section-header--tight">
+            <div class="section-number">05 - Estrutura Operacional</div>
+            <h2>Custos e infraestrutura</h2>
+            <p>Base material necess&aacute;ria para deslocamento, suporte e conectividade.</p>
           </div>
 
-          <div class="info-block">
-            <h3>Custos e Infraestrutura</h3>
-            <ul class="cost-list">
-              <li><span class="cost-dot"></span>Contratação de equipe</li>
-              <li>
-                <span class="cost-dot"></span>Deslocamento — Vans e carros
-              </li>
-              <li>
-                <span class="cost-dot"></span>Hospedagem (a partir de 21/03)
-              </li>
-              <li>
-                <span class="cost-dot" style="background: var(--gold)"></span
-                >Internet — Starlink (trajeto + operação)
-              </li>
-              <li><span class="cost-dot"></span>Equipamentos e power banks</li>
-              <li><span class="cost-dot"></span>Alimentação da equipe</li>
-            </ul>
-            <figure class="evidence-card">
-              <img
-                src="assets/evidencias/52e483db-45e6-4936-9631-82fe3bc60a06.jpeg"
-                alt="Registro operacional da estrutura de conectividade"
-                class="evidence-media"
-              />
-            </figure>
-          </div>
-
-          <div class="info-block" style="grid-column: 1 / -1">
-            <h3>Equipe</h3>
-            <p>
-              Foi realizada a mobilização de 27 profissionais, distribuídos entre coordenação geral, coordenação de campo, equipe de mobilização, motoristas, apoio administrativo e financeiro, treinamento, tecnologia e ponto focal local.
-            </p>
-            <div class="team-table-wrap" aria-label="Quadro de equipe mobilizada">
-              <table class="team-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Função</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Período</th>
-                    <th scope="col">Linha contratual</th>
-                    <th scope="col">Nomes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Coordenação geral</td>
-                    <td>2</td>
-                    <td>Mar/2026</td>
-                    <td>-</td>
-                    <td>Lucas Paiva e Luiz Gallo</td>
-                  </tr>
-                  <tr>
-                    <td>Coordenação de campo</td>
-                    <td>2</td>
-                    <td>Mar/2026</td>
-                    <td>Campo</td>
-                    <td>Deivisson Wagner e Talisson da Silva Lima</td>
-                  </tr>
-                  <tr>
-                    <td>Mobilizadores</td>
-                    <td>12</td>
-                    <td>Mar/2026</td>
-                    <td>Campo</td>
-                    <td>Letycia Morganna, Nikesya Kerolayne, Evenle Cristina, Evely Gomes, Pedro Henrique, Leonardo dos Santos, Eloisa de Almeida, Barbara Correia, Stephanie Ramos, Sanderleide Rosa, Maria Clara e Denilson Junior</td>
-                  </tr>
-                  <tr>
-                    <td>Motoristas</td>
-                    <td>2</td>
-                    <td>Mar/2026</td>
-                    <td>Campo</td>
-                    <td>Vitor Barbosa e Jose Mendes</td>
-                  </tr>
-                  <tr>
-                    <td>Apoio administrativo/financeiro</td>
-                    <td>3</td>
-                    <td>Mar/2026</td>
-                    <td>Campo</td>
-                    <td>Harry Filho, Larissa Macario e Jose Fernando</td>
-                  </tr>
-                  <tr>
-                    <td>Coordenação de treinamento</td>
-                    <td>3</td>
-                    <td>Mar/2026</td>
-                    <td>Treinamento</td>
-                    <td>Maria Vitoria Estenio, Olga Francino e Thiago Paiva</td>
-                  </tr>
-                  <tr>
-                    <td>Coordenação de tecnologia</td>
-                    <td>2</td>
-                    <td>Mar/2026</td>
-                    <td>Dados</td>
-                    <td>Pedro Abib e Gabriel Elioterio</td>
-                  </tr>
-                  <tr>
-                    <td>Pontos focais</td>
-                    <td>1</td>
-                    <td>Mar/2026</td>
-                    <td>Rede local</td>
-                    <td>Ytala Feitosa</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="team-page" style="grid-template-columns: .92fr 1.08fr">
+            <div class="info-block">
+              <h3>Principais frentes de custo</h3>
+              <ul class="cost-list">
+                <li><span class="cost-dot"></span>Contrata&ccedil;&atilde;o de equipe</li>
+                <li><span class="cost-dot"></span>Deslocamento e hospedagem</li>
+                <li><span class="cost-dot" style="background: var(--gold)"></span>Internet Starlink</li>
+                <li><span class="cost-dot"></span>Equipamentos e power banks</li>
+                <li><span class="cost-dot"></span>Alimenta&ccedil;&atilde;o da equipe</li>
+              </ul>
             </div>
 
-          </div>
-
-          <div class="info-block" style="grid-column: 1 / -1">
-            <h3>Logística</h3>
-            <p >
-              A operação de lançamento também demandou contratação e ativação de vans, deslocamento superior a 12 horas até Pilão Arcado, hospedagem da equipe, alimentação operacional, conectividade via Starlink, chips e equipamentos de apoio como power banks, materiais de identificação e estrutura mínima de autonomia de campo. Esses itens não devem ser lidos como acessórios, mas como infraestrutura essencial para que a mobilização pudesse ocorrer com segurança, comunicação contínua e envio de dados em tempo real.
-            </p>
-            <div class="evidence-panel evidence-panel--transport">
-              <div class="evidence-panel__hero">
-                <img
-                  src="assets/evidencias/image.png"
-                  alt="Mapa do trajeto até Pilão Arcado"
-                  class="evidence-media evidence-media--hero"
-                />
-                <figure class="evidence-card">
-                  <video
-                    src="assets/evidencias/c2900d24-a732-4e1d-9d40-a3a0b8defe9e.mov"
-                    class="evidence-media"
-                    style="max-height: 390px; margin-top: 16px"
-                    controls
-                  ></video>
-                </figure>
-              </div>
-
-              <div class="evidence-panel__side">
-                <figure class="evidence-card">
-                  <img
-                    src="assets/evidencias/print.jpeg"
-                    alt="Captura de apoio logístico da operação"
-                    class="evidence-media"
-                  />
-                </figure>
+            <div class="info-block">
+              <img alt="Registro operacional da estrutura de conectividade" class="evidence-media" src="assets/evidencias/52e483db-45e6-4936-9631-82fe3bc60a06.jpeg" style="height: 155px" />
+              <div class="note-card" style="margin-top: 12px">
+                <div class="note-card__label">Infraestrutura cr&iacute;tica</div>
+                <ul class="note-list"><li>Conectividade est&aacute;vel para equipe e dados</li><li>Estrutura log&iacute;stica para ritmo cont&iacute;nuo</li></ul>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="slide-foot">
+          <span>Custos, equipamentos e infraestrutura cr&iacute;tica</span>
+          <span class="slide-foot__num">15</span>
         </div>
       </div>
     </section>
-
-    <!-- CLOSING -->
-    <div class="wrapper">
-      <section style="border-bottom: none; padding-bottom: 20px">
-        <div class="section-header">
-          <div class="section-number">06 — Conclusão</div>
-          <h2>Primeiros Resultados</h2>
-        </div>
-        <div
-          style="
-            background: linear-gradient(
-              135deg,
-              var(--surface) 0%,
-              rgba(59, 130, 246, 0.04) 100%
-            );
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 32px;
-          "
-        >
-          <p
-            style="
-              font-size: 15px;
-              color: var(--text-dim);
-              font-weight: 300;
-              line-height: 1.8;
-              max-width: 860px;
-              margin-bottom: 18px;
-            "
-          >
-            As atividades realizadas no período demonstram execução consistente
-            do planejamento inicial, com mobilização ativa da população,
-            estruturação operacional completa e coleta sistemática de
-            evidências.
-          </p>
-
-          <h3
-            style="
-              font-family: 'Space Grotesk', sans-serif;
-              font-size: 20px;
-              color: #fff;
-              margin-bottom: 10px;
-            "
-          >
-            Aprendizados e Ajustes Operacionais
-          </h3>
-          <ul
-            style="
-              margin: 0 0 20px 18px;
-              color: var(--text-dim);
-              font-size: 14px;
-              line-height: 1.8;
-            "
-          >
-            <li>Presença de público já atendido em algumas regiões</li>
-            <li>Necessidade de maior direcionamento geográfico prévio</li>
-            <li>Importância do ponto focal para continuidade</li>
-            <li>Relevância do D-1 para performance do Dia D</li>
-          </ul>
-
-          <h4
-            style="
-              font-family: 'Space Grotesk', sans-serif;
-              font-size: 17px;
-              color: #fff;
-              margin-bottom: 8px;
-            "
-          >
-            Aplicação estratégica dos dados
-          </h4>
-          <p
-            style="
-              font-size: 14px;
-              color: var(--text-dim);
-              line-height: 1.75;
-              margin-bottom: 8px;
-            "
-          >
-            As informações coletadas no D-1 foram utilizadas para:
-          </p>
-          <ul
-            style="
-              margin: 0 0 0 18px;
-              color: var(--text-dim);
-              font-size: 14px;
-              line-height: 1.8;
-            "
-          >
-            <li>Ajustar a estratégia de abordagem no Dia D</li>
-            <li>
-              Direcionar a equipe para áreas com maior potencial de conversão
-            </li>
-            <li>Identificar oportunidades de reforço na mobilização</li>
-          </ul>
-
-          <h4
-            style="
-              font-family: 'Space Grotesk', sans-serif;
-              font-size: 17px;
-              color: #fff;
-              margin: 22px 0 8px;
-            "
-          >
-            Fecho de prestação de contas
-          </h4>
-          <p
-            style="
-              font-size: 14px;
-              color: var(--text-dim);
-              line-height: 1.8;
-              max-width: 900px;
-            "
-          >
-            As evidências apresentadas nesta medição demonstram que a Central
-            de Engajamento não apenas iniciou a cobertura territorial, mas
-            ativou a estrutura operacional necessária para sustentar toda a
-            Fase C. A nota proposta, portanto, corresponde ao reconhecimento do
-            arranque operacional efetivamente realizado, da capacidade instalada
-            já mobilizada e da primeira execução em campo, preservando saldo
-            contratual relevante para a expansão das cidades subsequentes.
-          </p>
-          <a
-            href="https://docs.google.com/spreadsheets/d/197Zv6_yXh0l3S0tDWxNnrU6trpkQT0DnO60AIvVf9pQ/edit?gid=1406800978#gid=1406800978"
-            target="_blank"
-            rel="noreferrer"
-            class="dashboard-url"
-            style="margin-top: 20px"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34a853" stroke-width="2" style="flex-shrink:0">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <line x1="3" y1="9" x2="21" y2="9"/>
-              <line x1="3" y1="15" x2="21" y2="15"/>
-              <line x1="9" y1="3" x2="9" y2="21"/>
-              <line x1="15" y1="3" x2="15" y2="21"/>
-            </svg>
-            <span class="dashboard-url__text">
-              <span class="dashboard-url__title">Planilha de Prestação de Contas</span>
-              <span class="dashboard-url__meta">Acessar detalhamento financeiro da operação</span>
-            </span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15,3 21,3 21,9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-          </a>
-        </div>
-      </section>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="wrapper">
-        <div class="footer-inner">
-          <div class="footer-logo">
-            <img src="/assets/logo.png" alt="Central de Engajamento" />
+    <section class="pdf-page slide-starlink">
+      <div class="page-inner">
+        <div class="slide-head">
+          <div class="slide-head__left">
+            <img src="assets/logo.png" alt="Central de Engajamento" />
+            <div class="slide-head__meta">
+              <div class="slide-head__eyebrow">Conclus&atilde;o</div>
+              <div class="slide-head__title">S&iacute;ntese e Fecho</div>
+            </div>
           </div>
-          <div class="footer-text">
-            Relatório Operacional — Programa Brasil Antenado
+          <div class="slide-head__pill">13 a 25 Mar 2026</div>
+        </div>
+
+        <div class="slide-body">
+          <div class="starlink-page">
+            <article class="starlink-main">
+              <h3>Primeiros resultados</h3>
+              <p class="info-block__text">As atividades realizadas no per&iacute;odo demonstram execu&ccedil;&atilde;o consistente do planejamento inicial, com mobiliza&ccedil;&atilde;o ativa da popula&ccedil;&atilde;o, estrutura&ccedil;&atilde;o operacional completa e coleta sistem&aacute;tica de evid&ecirc;ncias.</p>
+              <div class="note-card" style="margin-top: 12px">
+                <div class="note-card__label">Aprendizados e ajustes operacionais</div>
+                <ul class="note-list">
+                  <li>Presen&ccedil;a de p&uacute;blico j&aacute; atendido em algumas regi&otilde;es.</li>
+                  <li>Necessidade de maior direcionamento geogr&aacute;fico pr&eacute;vio.</li>
+                  <li>Import&acirc;ncia do ponto focal para continuidade.</li>
+                  <li>Relev&acirc;ncia do D-1 para a performance do Dia D.</li>
+                </ul>
+              </div>
+            </article>
+            <div class="conclusion-side">
+              <div class="section-number">06 - Conclus&atilde;o</div>
+              <h2>Aplica&ccedil;&atilde;o estrat&eacute;gica dos dados</h2>
+              <div>
+                <p>As informa&ccedil;&otilde;es coletadas no D-1 foram usadas para ajustar a estrat&eacute;gia de abordagem no Dia D, direcionar a equipe para &aacute;reas com maior potencial de convers&atilde;o e identificar oportunidades de refor&ccedil;o na mobiliza&ccedil;&atilde;o.</p>
+                <p style="margin-top: 12px">As evid&ecirc;ncias desta medi&ccedil;&atilde;o demonstram que a Central de Engajamento ativou a estrutura operacional necess&aacute;ria para sustentar toda a Fase C, preservando saldo contratual relevante para a expans&atilde;o das cidades subsequentes.</p>
+                <a class="dashboard-url" href="https://docs.google.com/spreadsheets/d/197Zv6_yXh0l3S0tDWxNnrU6trpkQT0DnO60AIvVf9pQ/edit?gid=1406800978#gid=1406800978" target="_blank" rel="noreferrer" style="margin-top: 14px">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34a853" stroke-width="2" style="flex-shrink: 0">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="3" y1="15" x2="21" y2="15"></line>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                    <line x1="15" y1="3" x2="15" y2="21"></line>
+                  </svg>
+                  <span class="dashboard-url__text">
+                    <span class="dashboard-url__title">Planilha de Presta&ccedil;&atilde;o de Contas</span>
+                    <span class="dashboard-url__meta">Acessar detalhamento financeiro da opera&ccedil;&atilde;o</span>
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="slide-foot">
+          <span>Fechamento operacional e presta&ccedil;&atilde;o de contas</span>
+          <span class="slide-foot__num">16</span>
+        </div>
       </div>
-    </footer>
-
-    <div class="lightbox" id="image-lightbox" aria-hidden="true">
-      <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="Visualizacao ampliada de imagem">
-        <button class="lightbox__close" type="button" aria-label="Fechar imagem ampliada">×</button>
-        <figure class="lightbox__figure">
-          <img class="lightbox__image" src="" alt="" />
-        </figure>
-      </div>
-    </div>
-
-    <script>
-      // Animate progress bars on scroll
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const fills = entry.target.querySelectorAll(".progress-fill");
-              fills.forEach((fill) => {
-                const target = fill.style.width;
-                fill.style.width = "0%";
-                setTimeout(() => {
-                  fill.style.width = target;
-                }, 100);
-              });
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 },
-      );
-
-      document
-        .querySelectorAll(".result-card")
-        .forEach((card) => observer.observe(card));
-
-      // Fade in on scroll
-      const fadeObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-              entry.target.style.animationDelay = i * 0.05 + "s";
-              entry.target.classList.add("fade-up");
-              fadeObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      document
-        .querySelectorAll(".tl-item, .strategy-card, .kpi-card")
-        .forEach((el) => {
-          fadeObserver.observe(el);
-        });
-
-      // Global image lightbox
-      const lightbox = document.getElementById("image-lightbox");
-      const lightboxImage = lightbox.querySelector(".lightbox__image");
-      const lightboxClose = lightbox.querySelector(".lightbox__close");
-      const expandableImages = Array.from(document.querySelectorAll("img")).filter(
-        (image) =>
-          !image.closest(".nav-logo, .footer-logo, .dashboard-url") &&
-          !image.closest("#image-lightbox"),
-      );
-
-      const openLightbox = (image) => {
-        lightboxImage.src = image.currentSrc || image.src;
-        lightboxImage.alt = image.alt || "Imagem ampliada";
-        lightbox.classList.add("is-open");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("lightbox-open");
-      };
-
-      const closeLightbox = () => {
-        lightbox.classList.remove("is-open");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("lightbox-open");
-        lightboxImage.src = "";
-        lightboxImage.alt = "";
-      };
-
-      expandableImages.forEach((image) => {
-        image.classList.add("is-expandable-image");
-        image.setAttribute("tabindex", "0");
-        image.setAttribute("role", "button");
-        image.setAttribute("aria-label", `Expandir imagem: ${image.alt || "sem descricao"}`);
-
-        image.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          openLightbox(image);
-        });
-
-        image.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openLightbox(image);
-          }
-        });
-      });
-
-      lightboxClose.addEventListener("click", closeLightbox);
-
-      lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
-          closeLightbox();
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-          closeLightbox();
-        }
-      });
-    </script>
-  </body>
+    </section>
+  </main>
+</body>
 </html>
+
+
