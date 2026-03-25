@@ -831,6 +831,7 @@
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 24px;
+    min-width: 0;
   }
 
   .info-block h3 {
@@ -1199,10 +1200,12 @@
     .results-grid .result-card.wide { grid-column: 1; }
     .dashboard-split { grid-template-columns: 1fr; }
     .team-info { grid-template-columns: 1fr; }
+    .team-info .info-block[style] { grid-column: 1 !important; }
+    .evidence-panel { grid-template-columns: 1fr; }
+    .evidence-panel__hero { min-width: 0; }
     .tl-subsections { grid-template-columns: 1fr; }
     .tl-media-grid { grid-template-columns: 1fr; }
     .tl-media-grid__item { height: 220px; }
-    .evidence-panel { grid-template-columns: 1fr; }
     .video-card__head { flex-direction: column; align-items: flex-start; }
     .focal-card { grid-template-columns: 1fr; }
     .dashboard-card { grid-template-columns: 1fr; }
