@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório — Programa Brasil Antenado</title>
+    <link rel="icon" type="image/png" href="/assets/icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">
+        <img src="/assets/logo.png" alt="Central de Engajamento" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#overview">Visão Geral</a></li>
+        <li><a href="#timeline">Linha do Tempo</a></li>
+        <li><a href="#strategy">Estratégia</a></li>
+        <li><a href="#results">Resultados</a></li>
+        <li><a href="#team">Equipe</a></li>
+      </ul>
+      <span class="nav-badge">13–25 Mar 2025</span>
+    </nav>
+
+    <!-- HERO -->
+    <div class="wrapper">
+      <div class="hero fade-up">
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <div class="hero-tag">Relatório Operacional</div>
+            <h1>Programa<br /><span>Brasil Antenado</span></h1>
+            <p class="hero-desc">
+              Expansão de conectividade e acesso à informação por meio da
+              instalação de antenas digitais em famílias em situação de
+              vulnerabilidade.
+            </p>
+            <div class="hero-meta">
+              <div class="meta-item">
+                <span class="meta-label">Período</span>
+                <span class="meta-value">13 a 25 de março</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Cidades</span>
+                <span class="meta-value"
+                  >Pilão Arcado e Campo Alegre de Lourdes - BA</span
+                >
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Equipe</span>
+                <span class="meta-value">~30 profissionais</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Executora</span>
+                <span class="meta-value">Central de Engajamento</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-gallery" aria-label="Evidências visuais da operação">
+            <img
+              class="hero-shot hero-shot--front"
+              src="/assets/evidencias/Captura de tela de 2026-03-24 11-59-44.png"
+              alt="Mapa de mobilização em Pilão Arcado"
+            />
+            <img
+              class="hero-shot hero-shot--back"
+              src="/assets/evidencias/Captura de tela de 2026-03-24 13-45-21.png"
+              alt="Mapa de mobilização em Campo Alegre de Lourdes"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div id="overview">
+      <div class="wrapper">
+        <div class="kpi-section">
+          <div class="section-header">
+            <div class="section-number">01 — KPIs</div>
+            <h2>Principais Indicadores</h2>
+            <p>
+              Dados coletados durante a operação de mobilização até o momento.
+            </p>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi-card" style="animation-delay: 0.05s">
+              <div class="kpi-number blue">204</div>
+              <div class="kpi-label">
+                Submissões realizadas no formulário de campo
+              </div>
+            </div>
+            <div class="kpi-card" style="animation-delay: 0.1s">
+              <div class="kpi-number green">77%</div>
+              <div class="kpi-label">Da população já conhecia o programa</div>
+            </div>
+            <div class="kpi-card" style="animation-delay: 0.15s">
+              <div class="kpi-number gold">89%</div>
+              <div class="kpi-label">
+                Demonstraram potencial de comparecimento à carreta
+              </div>
+            </div>
+            <div class="kpi-card" style="animation-delay: 0.25s">
+              <div class="kpi-number">2</div>
+              <div class="kpi-label">
+                Cidades cobertas na fase inicial da operação
+              </div>
+            </div>
+            <div class="kpi-card" style="animation-delay: 0.3s">
+              <div class="kpi-number green">~30</div>
+              <div class="kpi-label">
+                Profissionais contratados e mobilizados em campo
+              </div>
+            </div>
+          </div>
+
+          <article class="kpi-trend" aria-labelledby="kpi-trend-title">
+            <div class="kpi-trend__head">
+              <h3 id="kpi-trend-title">Volume diário de atendimentos</h3>
+            </div>
+
+            <svg
+              class="kpi-trend__chart"
+              viewBox="0 0 760 300"
+              role="img"
+              aria-label="Gráfico de linha com atendimentos diários: 22 de março 37, 23 de março 72, 24 de março 95"
+            >
+              <defs>
+                <linearGradient id="trendArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35" />
+                  <stop
+                    offset="100%"
+                    stop-color="#60a5fa"
+                    stop-opacity="0.03"
+                  />
+                </linearGradient>
+              </defs>
+
+              <line x1="80" y1="220" x2="700" y2="220" class="chart-axis" />
+
+              <line x1="80" y1="220" x2="700" y2="220" class="chart-grid" />
+              <line x1="80" y1="177.5" x2="700" y2="177.5" class="chart-grid" />
+              <line x1="80" y1="135" x2="700" y2="135" class="chart-grid" />
+              <line x1="80" y1="92.5" x2="700" y2="92.5" class="chart-grid" />
+              <line x1="80" y1="50" x2="700" y2="50" class="chart-grid" />
+
+              <text x="62" y="224" class="chart-tick">0</text>
+              <text x="54" y="181.5" class="chart-tick">25</text>
+              <text x="54" y="139" class="chart-tick">50</text>
+              <text x="54" y="96.5" class="chart-tick">75</text>
+              <text x="48" y="54" class="chart-tick">100</text>
+
+              <path
+                d="M110 157.1 L390 97.6 L670 58.5 L670 220 L110 220 Z"
+                class="chart-area"
+              />
+              <path d="M110 157.1 L390 97.6 L670 58.5" class="chart-line" />
+
+              <circle cx="110" cy="157.1" r="6.5" class="chart-point" />
+              <circle cx="390" cy="97.6" r="6.5" class="chart-point" />
+              <circle cx="670" cy="58.5" r="6.5" class="chart-point" />
+
+              <text x="110" y="143.5" class="chart-value">37</text>
+              <text x="390" y="84" class="chart-value">72</text>
+              <text x="670" y="45" class="chart-value">95</text>
+
+              <text x="110" y="248" class="chart-label">22/03</text>
+              <text x="390" y="248" class="chart-label">23/03</text>
+              <text x="670" y="248" class="chart-label">24/03</text>
+            </svg>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-number">02 — Cronograma</div>
+          <h2>Linha do Tempo da Operação</h2>
+          <p>
+            Evolução das atividades desde o fechamento do projeto até a execução
+            em campo.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item" style="animation-delay: 0.05s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">13 de março</div>
+              <div class="tl-title">Fechamento e Planejamento</div>
+              <div class="tl-body">
+                Encerramento do projeto junto ao cliente e início do
+                planejamento operacional detalhado para a execução em campo.
+              </div>
+              <div class="tl-tags">
+                <span class="tag">Gestão</span>
+                <span class="tag">Planejamento</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item" style="animation-delay: 0.1s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">20 de março</div>
+              <div class="tl-title">Treinamento da Equipe de Campo</div>
+              <div class="tl-body">
+                Capacitação completa das equipes com foco em: abordagem porta a
+                porta, uso do formulário Zoho, coleta de evidências e fluxo de
+                atendimento via WhatsApp (Bolt).
+              </div>
+              <div class="tl-tags">
+                <span class="tag blue">Call Center</span>
+                <span class="tag blue">Equipe de Campo</span>
+                <span class="tag">Zoho</span>
+              </div>
+              <img
+                src="assets/evidencias/image (1).png"
+                alt="Treinamento da Equipe de Campo"
+                class="evidence-media"
+                style="margin-top: 12px; border-radius: 8px"
+              />
+            </div>
+          </div>
+
+          <div class="tl-item active" style="animation-delay: 0.15s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">21 de março</div>
+              <div class="tl-title">Início da Operação — Deslocamento</div>
+              <div class="tl-body">
+                Início da viagem com mais de 12 horas de deslocamento até Pilão
+                Arcado (BA). Conectividade Starlink ativada durante todo o
+                trajeto. Chegada e primeira hospedagem da equipe.
+              </div>
+              <div class="tl-tags">
+                <span class="tag blue">Starlink</span>
+                <span class="tag">+12h deslocamento</span>
+                <span class="tag">Hospedagem</span>
+              </div>
+              <div class="tl-media-grid">
+                <img
+                  src="assets/evidencias/image.png"
+                  alt="Mapa do trajeto até Pilão Arcado"
+                  class="tl-media-grid__item tl-media-grid__item--wide"
+                />
+                <img
+                  src="assets/evidencias/IMG_6735.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--narrow"
+                />
+              </div>
+              <img
+                src="assets/evidencias/22-03-26 - Pilão Arcado - BA - Foto Ricardo Prado -8.jpg"
+                alt="Mapa do trajeto até Pilão Arcado"
+                class="tl-media-grid__item tl-media-grid__item--wide"
+                style="margin-top: 12px"
+              />
+            </div>
+          </div>
+
+          <div class="tl-item active" style="animation-delay: 0.2s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">22 de março — D-1 (Esquenta)</div>
+              <div class="tl-title">Mobilização em Campo — Pilão Arcado</div>
+              <div class="tl-body">
+                Início da mobilização ativa com abordagem porta a porta.
+                Aplicação do formulário de pré-cadastro via Zoho, coleta de
+                evidências e mapeamento do território. Dashboard de
+                monitoramento ativado em tempo real.
+              </div>
+              <div class="tl-tags">
+                <span class="tag green">37 submissões</span>
+                <span class="tag green">73% conheciam o programa</span>
+                <span class="tag blue">Mapa de calor</span>
+              </div>
+              <div class="tl-media-grid">
+                <img
+                  src="assets/evidencias/595b1930-32d3-48c2-a35f-b825c7695533.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--wide"
+                />
+                <img
+                  src="assets/evidencias/d34f53ac-27cd-4fd3-99eb-baeaf52587d0.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--narrow"
+                />
+                <img
+                  src="assets/evidencias/IMG_6714.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--wide"
+                />
+                <img
+                  src="assets/evidencias/687cda28-7299-4094-8ffa-f47f10016f79.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--narrow"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item active" style="animation-delay: 0.25s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">23 de março — Dia D (Carreta)</div>
+              <div class="tl-title">Execução da Ação Principal</div>
+              <div class="tl-body">
+                Instalação da estrutura central de atendimento com atração da
+                população (paredão, música, wi-fi). Conversão dos beneficiários
+                pré-cadastrados e atendimento direto. Dados do D-1 utilizados
+                para direcionar estratégia.
+              </div>
+              <div class="tl-tags">
+                <span class="tag green">Estrutura central</span>
+                <span class="tag green">Conversão</span>
+                <span class="tag">Beneficiários</span>
+              </div>
+              <div class="tl-media-grid">
+                <img
+                  src="assets/evidencias/image-carreta.png"
+                  class="tl-media-grid__item tl-media-grid__item--wide"
+                />
+                <img
+                  src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Itala Feitosa -  @ricardoprado_8 -2.jpg"
+                  class="tl-media-grid__item tl-media-grid__item--narrow"
+                />
+                <img
+                  src="assets/evidencias/23-03-26 - Pilão Arcado - BA - Gilvan Gonçalves, Kaliane, Laiane e Eliana -  @ricardoprado_8 -1.jpg"
+                  class="tl-media-grid__item tl-media-grid__item--wide"
+                />
+                <img
+                  src="assets/evidencias/afebcb7a-0dbe-423d-ad43-6044f40adc2e.JPEG.jpeg"
+                  class="tl-media-grid__item tl-media-grid__item--narrow"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item" style="animation-delay: 0.3s">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-date">Até 25 de março — D+N (Relacionamento)</div>
+              <div class="tl-title">
+                Continuidade e Fechamento dos Atendimentos
+              </div>
+              <div class="tl-body">
+                Atuação dos pontos focais locais na cidade. Suporte via
+                WhatsApp, apoio na regularização do CadÚnico, intermediação com
+                CRAS e finalização de cadastros pendentes.
+              </div>
+              <div class="tl-tags">
+                <span class="tag">Pontos Focais</span>
+                <span class="tag">CadÚnico</span>
+                <span class="tag">CRAS</span>
+                <span class="tag blue">30 dias pós-carreta</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRATEGY -->
+    <section id="strategy">
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-number">03 — Modelo Operacional</div>
+          <h2>Estratégia em 3 Fases</h2>
+          <p>
+            A operação foi estruturada para garantir volume no Dia D e
+            continuidade de impacto nas semanas seguintes.
+          </p>
+        </div>
+
+        <div class="strategy-grid">
+          <div class="strategy-card" style="animation-delay: 0.05s">
+            <span class="strategy-icon">📡</span>
+            <div class="strategy-phase">Fase 01</div>
+            <div class="strategy-title">D-1 — Esquenta</div>
+            <p class="strategy-desc">
+              Mobilização prévia e pré-cadastro da população para garantir fluxo
+              no Dia D.
+            </p>
+            <ul class="strategy-list">
+              <li>Abordagem porta a porta</li>
+              <li>Apresentação do programa</li>
+              <li>Formulário Zoho (pré-cadastro)</li>
+              <li>Foto da TV e fachada</li>
+              <li>Verificação CadÚnico</li>
+            </ul>
+          </div>
+
+          <div
+            class="strategy-card"
+            style="animation-delay: 0.1s; border-color: rgba(59, 130, 246, 0.3)"
+          >
+            <span class="strategy-icon">🚛</span>
+            <div class="strategy-phase">Fase 02</div>
+            <div class="strategy-title">Dia D — Carreta</div>
+            <p class="strategy-desc">
+              Execução central dos atendimentos com estrutura de atração e
+              conversão em massa.
+            </p>
+            <ul class="strategy-list">
+              <li>Estrutura central de atendimento</li>
+              <li>Paredão + Música + Wi-fi</li>
+              <li>Conversão de beneficiários</li>
+              <li>Atendimento ágil (2–5 min)</li>
+              <li>Dados D-1 como base estratégica</li>
+            </ul>
+          </div>
+
+          <div class="strategy-card" style="animation-delay: 0.15s">
+            <span class="strategy-icon">🤝</span>
+            <div class="strategy-phase">Fase 03</div>
+            <div class="strategy-title">D+N — Relacionamento</div>
+            <p class="strategy-desc">
+              30 dias de acompanhamento pós-carreta por pontos focais locais.
+            </p>
+            <ul class="strategy-list">
+              <li>Pontos focais na cidade</li>
+              <li>Equipes locais (5–10 pessoas)</li>
+              <li>Contato individual com beneficiários</li>
+              <li>Auxílio na Regularização do CadÚnico</li>
+              <li>Intermediação com CRAS</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pontos Focais -->
+        <div class="focal-card">
+          <div>
+            <h3>Pontos Focais — Papel Estratégico</h3>
+            <p
+              style="
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-bottom: 16px;
+                font-weight: 300;
+              "
+            >
+              Lideranças regionais responsáveis por manter o relacionamento com
+              a população após a passagem da carreta, garantindo a continuidade
+              e o fechamento dos atendimentos.
+            </p>
+            <ul class="focal-items">
+              <li>Elo entre o projeto e a população local</li>
+              <li>Permanecem na cidade após a ação</li>
+              <li>Lideram equipes de 5 a 10 pessoas</li>
+              <li>Contato individual com beneficiários</li>
+              <li>Apoio na finalização de cadastros pendentes</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Atuação Prática</h3>
+            <ul class="focal-items">
+              <li>Auxílio na regularização do CadÚnico</li>
+              <li>Apoio no envio de documentos</li>
+              <li>Acompanhamento de pendências</li>
+              <li>Fechamento de atendimentos via WhatsApp</li>
+              <li>Intermediação com CRAS e assistentes sociais</li>
+              <li>Maximização do número de conversões</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results">
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-number">04 — Dados Coletados</div>
+          <h2>Insights dos primeiros dias</h2>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-card">
+            <h3
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                color: #fff;
+                margin-bottom: 6px;
+              "
+            >
+              Perfil da População
+            </h3>
+            <p
+              style="
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-bottom: 4px;
+              "
+            >
+              Dados coletados via formulário Zoho
+            </p>
+            <div class="progress-bar-wrap">
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Conheciam o programa</span>
+                  <span>77%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 77%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Potencial de comparecimento</span>
+                  <span>89%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 89%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Possuem CadÚnico</span>
+                  <span>85%+</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill green" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <h3
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                color: #fff;
+                margin-bottom: 6px;
+              "
+            >
+              Percepções de Campo
+            </h3>
+            <p
+              style="
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-bottom: 16px;
+              "
+            >
+              Observações da equipe durante a mobilização
+            </p>
+            <ul class="focal-items">
+              <li>Parte da população já havia sido atendida anteriormente</li>
+              <li>Alta presença de antenas já instaladas na região</li>
+              <li>Necessidade de foco em áreas com menor cobertura</li>
+              <li>Alta receptividade ao programa nas abordagens</li>
+              <li>Mapa de calor gerado para direcionar o Dia D</li>
+            </ul>
+          </div>
+
+          <div class="result-card wide">
+            <h3
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 16px;
+                color: #fff;
+                margin-bottom: 6px;
+              "
+            >
+              Dashboard de Monitoramento em Tempo Real
+            </h3>
+            <p
+              style="
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-bottom: 16px;
+                font-weight: 300;
+              "
+            >
+              Após o primeiro dia de operação, foi estruturado um dashboard de
+              acompanhamento com base nas respostas coletadas pela equipe de
+              campo. Permitiu monitoramento de produtividade por equipe, análise
+              comparativa entre coordenadores e visualização geográfica das
+              interações via mapa de calor.
+            </p>
+            <div
+              style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px"
+            >
+              <div
+                style="
+                  background: var(--surface2);
+                  border: 1px solid var(--border);
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  flex: 1;
+                  min-width: 160px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: var(--text-muted);
+                    margin-bottom: 4px;
+                  "
+                >
+                  Acompanhamento
+                </div>
+                <div
+                  style="font-size: 14px; color: var(--text); font-weight: 500"
+                >
+                  Produtividade por equipe
+                </div>
+              </div>
+              <div
+                style="
+                  background: var(--surface2);
+                  border: 1px solid var(--border);
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  flex: 1;
+                  min-width: 160px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: var(--text-muted);
+                    margin-bottom: 4px;
+                  "
+                >
+                  Análise
+                </div>
+                <div
+                  style="font-size: 14px; color: var(--text); font-weight: 500"
+                >
+                  Comparativo de coordenadores
+                </div>
+              </div>
+              <div
+                style="
+                  background: var(--surface2);
+                  border: 1px solid var(--border);
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  flex: 1;
+                  min-width: 160px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: var(--text-muted);
+                    margin-bottom: 4px;
+                  "
+                >
+                  Geográfico
+                </div>
+                <div
+                  style="font-size: 14px; color: var(--text); font-weight: 500"
+                >
+                  Mapa de calor das abordagens
+                </div>
+              </div>
+            </div>
+            <a
+              href="https://dashboard-brasil-antenado.netlify.app/"
+              target="_blank"
+              class="dashboard-url"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <polyline points="15,3 21,3 21,9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Dashboard Brasil Antenado
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM & LOGISTICS -->
+    <section id="team">
+      <div class="wrapper">
+        <div class="section-header">
+          <div class="section-number">05 — Estrutura Operacional</div>
+          <h2>Equipe e Logística</h2>
+          <p>
+            Estrutura completa para viabilizar a execução das atividades de
+            campo.
+          </p>
+        </div>
+
+        <div class="team-info">
+          <div class="info-block">
+            <h3>Composição da Equipe (~30 profissionais)</h3>
+            <ul class="cost-list">
+              <li>
+                <span class="cost-dot"></span>Equipe de campo — mobilização
+                porta a porta
+              </li>
+              <li><span class="cost-dot"></span>Coordenadores de operação</li>
+              <li>
+                <span class="cost-dot"></span>Apoio administrativo e financeiro
+              </li>
+              <li>
+                <span class="cost-dot" style="background: var(--green)"></span
+                >Pontos focais locais (pós-carreta)
+              </li>
+            </ul>
+            <img
+              src="assets/evidencias/70740cd7-3469-4369-914d-261f20576fd6.jpeg"
+              alt="Equipe de campo durante mobilização"
+              class="evidence-media"
+              style="margin-top: 16px; border-radius: 12px; max-height: 420px"
+            />
+          </div>
+
+          <div class="info-block">
+            <h3>Custos e Infraestrutura</h3>
+            <ul class="cost-list">
+              <li><span class="cost-dot"></span>Contratação de equipe</li>
+              <li>
+                <span class="cost-dot"></span>Deslocamento — Vans e carros
+              </li>
+              <li>
+                <span class="cost-dot"></span>Hospedagem (a partir de 21/03)
+              </li>
+              <li>
+                <span class="cost-dot" style="background: var(--gold)"></span
+                >Internet — Starlink (trajeto + operação)
+              </li>
+              <li><span class="cost-dot"></span>Equipamentos e power banks</li>
+              <li><span class="cost-dot"></span>Alimentação da equipe</li>
+            </ul>
+            <figure class="evidence-card">
+              <img
+                src="assets/evidencias/52e483db-45e6-4936-9631-82fe3bc60a06.jpeg"
+                alt="Registro operacional da estrutura de conectividade"
+                class="evidence-media"
+              />
+            </figure>
+          </div>
+
+          <div class="info-block" style="grid-column: 1 / -1">
+            <h3>Conectividade — Starlink</h3>
+            <p class="info-block__text">
+              Para garantir conectividade contínua durante toda a operação, foi
+              contratada estrutura de internet via Starlink. Essa solução
+              permitiu comunicação constante da equipe, envio de dados em tempo
+              real e continuidade operacional mesmo em deslocamento. Destaca-se
+              que, no dia 21 de março, a equipe enfrentou um deslocamento
+              superior a <strong style="color: var(--text)">12 horas</strong>,
+              reforçando a importância crítica da conectividade durante toda a
+              viagem.
+            </p>
+            <div class="evidence-panel evidence-panel--transport">
+              <div class="evidence-panel__hero">
+                <img
+                  src="assets/evidencias/image.png"
+                  alt="Mapa do trajeto até Pilão Arcado"
+                  class="evidence-media evidence-media--hero"
+                />
+                <figure class="evidence-card">
+                  <video
+                    src="assets/evidencias/c2900d24-a732-4e1d-9d40-a3a0b8defe9e.mov"
+                    class="evidence-media"
+                    style="max-height: 390px; margin-top: 16px"
+                    controls
+                  ></video>
+                </figure>
+              </div>
+
+              <div class="evidence-panel__side">
+                <figure class="evidence-card">
+                  <img
+                    src="assets/evidencias/IMG_6765.png"
+                    alt="Captura de apoio logístico da operação"
+                    class="evidence-media"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <div class="wrapper">
+      <section style="border-bottom: none; padding-bottom: 20px">
+        <div class="section-header">
+          <div class="section-number">06 — Conclusão</div>
+          <h2>Primeiros Resultados</h2>
+        </div>
+        <div
+          style="
+            background: linear-gradient(
+              135deg,
+              var(--surface) 0%,
+              rgba(59, 130, 246, 0.04) 100%
+            );
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+          "
+        >
+          <p
+            style="
+              font-size: 15px;
+              color: var(--text-dim);
+              font-weight: 300;
+              line-height: 1.8;
+              max-width: 760px;
+            "
+          >
+            As atividades realizadas no período demonstram execução consistente
+            do planejamento inicial, com mobilização ativa da população,
+            estruturação operacional completa e coleta sistemática de
+            evidências.<br /><br />
+            A continuidade da operação, especialmente por meio dos
+            <strong style="color: var(--text)">pontos focais</strong>, garante o
+            avanço dos atendimentos iniciados e potencializa o volume de
+            conversões nos dias subsequentes à carreta.<br /><br />
+            A consolidação das evidências apresentadas neste relatório contribui
+            diretamente para a
+            <strong style="color: var(--accent2)"
+              >validação das entregas realizadas</strong
+            >
+            e suporte às etapas financeiras do projeto.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper">
+        <div class="footer-inner">
+          <div class="footer-logo">
+            <img src="/assets/logo.png" alt="Central de Engajamento" />
+          </div>
+          <div class="footer-text">
+            Relatório Operacional — Programa Brasil Antenado
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Animate progress bars on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const fills = entry.target.querySelectorAll(".progress-fill");
+              fills.forEach((fill) => {
+                const target = fill.style.width;
+                fill.style.width = "0%";
+                setTimeout(() => {
+                  fill.style.width = target;
+                }, 100);
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      document
+        .querySelectorAll(".result-card")
+        .forEach((card) => observer.observe(card));
+
+      // Fade in on scroll
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationDelay = i * 0.05 + "s";
+              entry.target.classList.add("fade-up");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".tl-item, .strategy-card, .kpi-card")
+        .forEach((el) => {
+          fadeObserver.observe(el);
+        });
+    </script>
+  </body>
+</html>
