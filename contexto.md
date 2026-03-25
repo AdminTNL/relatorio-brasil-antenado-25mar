@@ -8,6 +8,11 @@
     
     - Fechamento do projeto
     - Início do planejamento operacional
+
+    ### 17 de março
+
+    - Seleção de equipe coordenadores
+    - Seleção da equipe de campo
     
     ### 20 de março
     
@@ -82,6 +87,24 @@ Foi utilizado formulário via Zorro para pré-cadastro, contendo:
 - Conhecimento sobre o projeto
 
 Esse processo permite **agilidade no atendimento no Dia D e aumento da conversão**.
+
+### **Papel estruturante de treinamento, tecnologia e monitoramento**
+
+As frentes de treinamento, tecnologia e monitoramento não atuam apenas como suporte operacional, mas como componentes estruturantes da execução do projeto.
+
+Essas frentes foram responsáveis por:
+
+- Garantir padronização da abordagem em campo
+- Assegurar qualidade e consistência na coleta de dados
+- Viabilizar o registro e envio de evidências em tempo real
+- Permitir acompanhamento contínuo da operação
+- Apoiar a tomada de decisão com base em dados
+
+O uso de ferramentas como formulários estruturados, sistemas de acompanhamento e dashboards operacionais possibilitou rastreabilidade completa das interações realizadas em campo, sendo essencial para validação das entregas e continuidade da operação.
+
+Dessa forma, essas atividades devem ser compreendidas como parte integrante do valor entregue na operação, compondo a base de dados, controle e gestão necessários para execução em escala.
+
+Essas frentes não apenas suportam a operação, mas constituem entregas estruturais previstas nas linhas de Dados, Gestão e Treinamento do contrato, sendo indispensáveis para validação, rastreabilidade e escalabilidade da operação.
 
 ---
 
