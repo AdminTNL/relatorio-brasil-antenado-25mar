@@ -363,3 +363,24 @@ As atividades realizadas no período demonstram execução consistente do planej
 A continuidade da operação, especialmente por meio dos pontos focais, garante o avanço dos atendimentos iniciados e potencializa o volume de conversões nos dias subsequentes à carreta.
 
 A consolidação das evidências apresentadas neste relatório contribui diretamente para a validação das entregas realizadas e suporte às etapas financeiras do projeto.
+
+## 5. **Equipe e Operação**
+
+Foi realizada a contratação de 24 **profissionais**, distribuídos entre:
+
+- Equipe de campo (mobilização)
+- Coordenadores
+- Apoio administrativo e financeiro
+
+### **5.1 Quadro de equipe mobilizada**
+
+| Função | Quantidade | Período | Linha contratual | Nomes |
+| --- | --- | --- | --- | --- |
+| Coordenação geral | 2 | Mar/2026 |  | Lucas Paiva e Luiz Gallo |
+| Coordenação de campo | 2 | Mar/2026 | Campo | Deivisson Wagner e Talisson da Silva Lima  |
+| Mobilizadores | 12 | Mar/2026 | Campo | Letycia Morganna, Nikesya Kerolayne, Evenle cristina ,Evely Gomes, Pedro Henrique ,Leonardo dos Santos, Eloisa de Almeida, Bárbara  Correia, Stephanie Ramos, Sanderleide Rosa, Maria Clara e Denilson Junior |
+| Motoristas | 2 | Mar/2026 | Campo | Vitor Barbosa e Josè Mendes |
+| Apoio administrativo/financeiro | 3 | Mar/2026 | Campo | Harry Filho, Larissa Macário e José Fernando |
+| Coordenação de treinamento | 3 | Mar/2026 | Treinamento | Maria Vitoria Estenio, Olga francino e Thiago Paiva |
+| Coordenação de tecnologia | 2 | Mar/2026 | Dados | Pedro Abib e Gabriel Elioterio |
+| Pontos focais | 1 | Mar/2026 | Rede local | Ytala Feitosa |
