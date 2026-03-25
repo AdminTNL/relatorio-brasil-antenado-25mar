@@ -208,22 +208,6 @@
             </div>
           </div>
 
-          <div class="tl-item" style="animation-delay: 0.08s">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <div class="tl-date">17 de março</div>
-              <div class="tl-title">Seleção de Equipes</div>
-              <div class="tl-body">
-                Definição da equipe de coordenadores e seleção da equipe de
-                campo para preparação da operação.
-              </div>
-              <div class="tl-tags">
-                <span class="tag">Coordenação</span>
-                <span class="tag blue">Equipe de Campo</span>
-              </div>
-            </div>
-          </div>
-
           <div class="tl-item" style="animation-delay: 0.1s">
             <div class="tl-dot"></div>
             <div class="tl-content">
@@ -255,12 +239,12 @@
                 />
                 </a>
                 <img
-                  src="assets/evidencias/print.jpeg"
+                  src="assets/evidencias/IMG_6766.png"
                   alt="Registro da reuniao de treinamento da equipe de campo"
                   class="tl-media-grid__item tl-media-grid__item--wide"
                 />
                 <img
-                  src="assets/evidencias/print2.jpeg"
+                  src="assets/evidencias/IMG_6766.png"
                   alt="Registro da reuniao de treinamento da equipe de campo"
                   class="tl-media-grid__item tl-media-grid__item--narrow"
                 />
@@ -814,79 +798,11 @@
               </div>
               <figure class="dashboard-media">
                 <img
-                  src="assets/evidencias/dash2.png"
+                  src="assets/evidencias/pilao.png"
                   alt="Mapa de calor das abordagens em Pilao Arcado"
                   class="evidence-media"
                 />
               </figure>
-            </div>
-          </div>
-
-          <div class="result-card wide structural-card">
-            <div class="structural-card__header">
-              <div class="structural-card__eyebrow">Camada estruturante da operação</div>
-              <h3 class="structural-card__title">
-                Papel estruturante de treinamento, tecnologia e monitoramento
-              </h3>
-              <p class="structural-card__lead">
-                Essas frentes não atuam apenas como suporte operacional. Elas
-                estruturam padrão de execução, qualidade de dados,
-                rastreabilidade e leitura contínua da operação em campo.
-              </p>
-            </div>
-
-            <div class="structural-card__layout">
-              <div class="structural-card__responsibilities">
-                <article class="structural-pill">
-                  <span class="structural-pill__index">01</span>
-                  <h4>Padronização</h4>
-                  <p>Garantir consistência da abordagem em campo.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">02</span>
-                  <h4>Qualidade dos dados</h4>
-                  <p>Assegurar coleta confiável e comparável.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">03</span>
-                  <h4>Evidências em tempo real</h4>
-                  <p>Viabilizar registro e envio contínuo das interações.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">04</span>
-                  <h4>Monitoramento contínuo</h4>
-                  <p>Permitir acompanhamento operacional ao longo da execução.</p>
-                </article>
-                <article class="structural-pill">
-                  <span class="structural-pill__index">05</span>
-                  <h4>Decisão orientada por dados</h4>
-                  <p>Apoiar ajustes de rota com base em leitura operacional.</p>
-                </article>
-              </div>
-
-              <aside class="structural-card__aside">
-                <div class="structural-card__aside-label">Leitura contratual</div>
-                <p>
-                  Essas frentes constituem entregas estruturais previstas nas
-                  linhas de Dados, Gestão e Treinamento do contrato, sendo
-                  indispensáveis para validação, rastreabilidade e
-                  escalabilidade da operação.
-                </p>
-              </aside>
-            </div>
-
-            <div class="structural-card__footer">
-              <p>
-                O uso de formulários estruturados, sistemas de acompanhamento e
-                dashboards operacionais possibilitou rastreabilidade completa
-                das interações realizadas em campo, condição essencial para
-                validação das entregas e continuidade da operação.
-              </p>
-              <p>
-                Por isso, essas atividades devem ser lidas como parte do valor
-                entregue na operação, compondo a base de dados, controle e
-                gestão necessária para execução em escala.
-              </p>
             </div>
           </div>
         </div>
@@ -1060,7 +976,7 @@
               <div class="evidence-panel__side">
                 <figure class="evidence-card">
                   <img
-                    src="assets/evidencias/print.jpeg"
+                    src="assets/evidencias/IMG_6765.png"
                     alt="Captura de apoio logístico da operação"
                     class="evidence-media"
                   />
@@ -1234,15 +1150,6 @@
       </div>
     </footer>
 
-    <div class="lightbox" id="image-lightbox" aria-hidden="true">
-      <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="Visualizacao ampliada de imagem">
-        <button class="lightbox__close" type="button" aria-label="Fechar imagem ampliada">×</button>
-        <figure class="lightbox__figure">
-          <img class="lightbox__image" src="" alt="" />
-        </figure>
-      </div>
-    </div>
-
     <script>
       // Animate progress bars on scroll
       const observer = new IntersectionObserver(
@@ -1287,66 +1194,6 @@
         .forEach((el) => {
           fadeObserver.observe(el);
         });
-
-      // Global image lightbox
-      const lightbox = document.getElementById("image-lightbox");
-      const lightboxImage = lightbox.querySelector(".lightbox__image");
-      const lightboxClose = lightbox.querySelector(".lightbox__close");
-      const expandableImages = Array.from(document.querySelectorAll("img")).filter(
-        (image) =>
-          !image.closest(".nav-logo, .footer-logo, .dashboard-url") &&
-          !image.closest("#image-lightbox"),
-      );
-
-      const openLightbox = (image) => {
-        lightboxImage.src = image.currentSrc || image.src;
-        lightboxImage.alt = image.alt || "Imagem ampliada";
-        lightbox.classList.add("is-open");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("lightbox-open");
-      };
-
-      const closeLightbox = () => {
-        lightbox.classList.remove("is-open");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("lightbox-open");
-        lightboxImage.src = "";
-        lightboxImage.alt = "";
-      };
-
-      expandableImages.forEach((image) => {
-        image.classList.add("is-expandable-image");
-        image.setAttribute("tabindex", "0");
-        image.setAttribute("role", "button");
-        image.setAttribute("aria-label", `Expandir imagem: ${image.alt || "sem descricao"}`);
-
-        image.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          openLightbox(image);
-        });
-
-        image.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openLightbox(image);
-          }
-        });
-      });
-
-      lightboxClose.addEventListener("click", closeLightbox);
-
-      lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
-          closeLightbox();
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-          closeLightbox();
-        }
-      });
     </script>
   </body>
 </html>

@@ -818,142 +818,6 @@
     background: linear-gradient(90deg, var(--green), #34d399);
   }
 
-  .structural-card {
-    background:
-      radial-gradient(circle at top right, rgba(96,165,250,0.08), transparent 28%),
-      linear-gradient(180deg, rgba(13,20,33,0.98), rgba(10,16,28,0.96));
-    border-color: rgba(96,165,250,0.16);
-    overflow: hidden;
-    padding: 20px;
-  }
-
-  .structural-card__header {
-    max-width: 780px;
-    margin-bottom: 16px;
-  }
-
-  .structural-card__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-radius: 999px;
-    background: rgba(59,130,246,0.1);
-    border: 1px solid rgba(96,165,250,0.18);
-    color: var(--accent2);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .structural-card__title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px;
-    line-height: 1.15;
-    color: #fff;
-    margin-bottom: 8px;
-    max-width: 720px;
-  }
-
-  .structural-card__lead {
-    font-size: 15px;
-    color: var(--text-dim);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .structural-card__layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-    gap: 16px;
-    align-items: start;
-  }
-
-  .structural-card__responsibilities {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .structural-pill {
-    background: rgba(17,24,39,0.72);
-    border: 1px solid rgba(96,165,250,0.12);
-    border-radius: 12px;
-    padding: 12px 14px;
-  }
-
-  .structural-pill__index {
-    display: inline-flex;
-    margin-bottom: 6px;
-    color: var(--accent2);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .structural-pill h4 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-
-  .structural-pill p {
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.7;
-  }
-
-  .structural-card__aside {
-    background: linear-gradient(180deg, rgba(17,24,39,0.9), rgba(13,20,33,1));
-    border: 1px solid rgba(96,165,250,0.16);
-    border-radius: 12px;
-    padding: 16px;
-    position: relative;
-  }
-
-  .structural-card__aside::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 3px;
-    border-radius: 18px 0 0 18px;
-    background: linear-gradient(180deg, var(--accent2), rgba(96,165,250,0.1));
-  }
-
-  .structural-card__aside-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent2);
-    margin-bottom: 8px;
-  }
-
-  .structural-card__aside p {
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 1.85;
-  }
-
-  .structural-card__footer {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(96,165,250,0.12);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .structural-card__footer p {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.85;
-    font-weight: 300;
-  }
-
   /* TEAM SECTION */
   .team-info {
     display: grid;
@@ -1263,76 +1127,6 @@
     transform: translateY(-1px);
   }
 
-  .is-expandable-image {
-    cursor: zoom-in;
-  }
-
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    padding: 28px;
-    background: rgba(3, 7, 18, 0.86);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.22s ease, visibility 0.22s ease;
-    z-index: 220;
-  }
-
-  .lightbox.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .lightbox__dialog {
-    position: relative;
-    width: min(1120px, 100%);
-    max-height: calc(100vh - 56px);
-    display: grid;
-    gap: 14px;
-    justify-items: center;
-  }
-
-  .lightbox__close {
-    position: absolute;
-    top: -4px;
-    right: 0;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(96,165,250,0.18);
-    border-radius: 999px;
-    background: rgba(13,20,33,0.92);
-    color: #fff;
-    font-size: 26px;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .lightbox__figure {
-    margin: 0;
-    width: 100%;
-    display: grid;
-    justify-items: center;
-  }
-
-  .lightbox__image {
-    width: auto;
-    max-width: 100%;
-    max-height: calc(100vh - 140px);
-    border-radius: 18px;
-    border: 1px solid rgba(96,165,250,0.18);
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
-    background: rgba(8,12,20,0.9);
-  }
-
-  body.lightbox-open {
-    overflow: hidden;
-  }
-
   /* FOOTER */
   footer {
     padding: 15px 0;
@@ -1405,10 +1199,6 @@
     .results-grid { grid-template-columns: 1fr; }
     .results-grid .result-card.wide { grid-column: 1; }
     .dashboard-split { grid-template-columns: 1fr; }
-    .structural-card__layout { grid-template-columns: 1fr; }
-    .structural-card__responsibilities { grid-template-columns: 1fr; }
-    .structural-card__footer { grid-template-columns: 1fr; }
-    .structural-card__title { font-size: 23px; }
     .team-info { grid-template-columns: 1fr; }
     .team-info .info-block[style] { grid-column: 1 !important; }
     .evidence-panel { grid-template-columns: 1fr; }
@@ -1423,9 +1213,6 @@
     .kpi-trend { padding: 16px 14px 12px; }
     .kpi-trend__head { flex-direction: column; align-items: flex-start; }
     .kpi-trend__head h3 { font-size: 17px; }
-    .lightbox { padding: 18px; }
-    .lightbox__dialog { max-height: calc(100vh - 36px); }
-    .lightbox__image { max-height: calc(100vh - 120px); }
     .chart-label,
     .chart-tick { font-size: 11px; }
     .hero { padding: 100px 0 60px; }
